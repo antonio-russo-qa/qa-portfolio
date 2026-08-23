@@ -1,0 +1,393 @@
+﻿
+/* ============================================================
+   ANTONIO RUSSO
+   ISOLATED GLOBAL HEADER
+   IDENTICAL HEADER ON ALL PAGES
+============================================================ */
+
+
+/* ============================================================
+   HEADER
+============================================================ */
+
+header.header {
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+
+    width: 100% !important;
+    height: 76px !important;
+    min-height: 76px !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    display: block !important;
+
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+
+    z-index: 9999 !important;
+}
+
+
+/* ============================================================
+   CONTAINER
+============================================================ */
+
+header.header .nav-container {
+    width: min(1200px, calc(100% - 40px)) !important;
+
+    height: 76px !important;
+    min-height: 76px !important;
+
+    margin: 0 auto !important;
+    padding: 0 !important;
+
+    display: flex !important;
+
+    flex-direction: row !important;
+
+    align-items: center !important;
+    justify-content: space-between !important;
+
+    gap: 30px !important;
+
+    box-sizing: border-box !important;
+}
+
+
+/* ============================================================
+   LOGO CONTAINER
+============================================================ */
+
+header.header .logo {
+    width: auto !important;
+    height: auto !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    display: flex !important;
+    align-items: center !important;
+
+    flex: 0 0 auto !important;
+
+    font-size: 20px !important;
+    font-weight: 900 !important;
+
+    line-height: 1 !important;
+    letter-spacing: 2px !important;
+
+    white-space: nowrap !important;
+}
+
+header.header .logo a {
+    width: auto !important;
+    height: auto !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    display: inline-flex !important;
+    align-items: center !important;
+
+    text-decoration: none !important;
+
+    line-height: 1 !important;
+}
+
+
+/* ============================================================
+   ANTONIO
+============================================================ */
+
+header.header .logo .logo-first {
+    display: inline !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    color: #38bdf8 !important;
+
+    font-family: inherit !important;
+
+    font-size: 20px !important;
+    font-weight: 900 !important;
+
+    line-height: 1 !important;
+    letter-spacing: 2px !important;
+}
+
+
+/* ============================================================
+   RUSSO
+============================================================ */
+
+header.header .logo .logo-last {
+    display: inline !important;
+
+    margin: 0 0 0 6px !important;
+    padding: 0 !important;
+
+    color: #ffffff !important;
+
+    font-family: inherit !important;
+
+    font-size: 20px !important;
+    font-weight: 900 !important;
+
+    line-height: 1 !important;
+    letter-spacing: 2px !important;
+}
+
+
+/* ============================================================
+   LOGO HOVER
+============================================================ */
+
+header.header .logo a:hover .logo-first {
+    color: #7dd3fc !important;
+}
+
+header.header .logo a:hover .logo-last {
+    color: #ffffff !important;
+}
+
+
+/* ============================================================
+   NAVIGATION
+============================================================ */
+
+header.header .navigation {
+    width: auto !important;
+    height: auto !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    display: flex !important;
+
+    flex-direction: row !important;
+
+    align-items: center !important;
+    justify-content: flex-end !important;
+
+    flex: 0 0 auto !important;
+
+    flex-wrap: nowrap !important;
+
+    gap: 8px !important;
+}
+
+
+/* ============================================================
+   NAV LINKS
+============================================================ */
+
+header.header .navigation .nav-link {
+    position: relative !important;
+
+    width: auto !important;
+    height: auto !important;
+
+    margin: 0 !important;
+
+    padding: 10px 14px !important;
+
+    display: inline-flex !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    box-sizing: border-box !important;
+
+    color: rgba(255,255,255,.78) !important;
+    background: transparent !important;
+
+    font-family: inherit !important;
+
+    font-size: .92rem !important;
+    font-weight: 600 !important;
+
+    line-height: 1.2 !important;
+    letter-spacing: normal !important;
+
+    text-decoration: none !important;
+
+    border: none !important;
+    border-radius: 8px !important;
+
+    transform: none !important;
+
+    transition:
+        color .25s ease,
+        background-color .25s ease,
+        transform .25s ease !important;
+}
+
+
+/* ============================================================
+   REMOVE OLD PAGE-SPECIFIC EFFECTS
+============================================================ */
+
+header.header .navigation .nav-link::before,
+header.header .navigation .nav-link::after {
+    content: none !important;
+
+    display: none !important;
+
+    width: 0 !important;
+    height: 0 !important;
+
+    border: none !important;
+    background: none !important;
+}
+
+
+/* ============================================================
+   HOVER
+============================================================ */
+
+header.header .navigation .nav-link:hover {
+    color: #ffffff !important;
+
+    background: rgba(22,140,255,.10) !important;
+
+    transform: translateY(-1px) !important;
+}
+
+
+/* ============================================================
+   ACTIVE
+============================================================ */
+
+header.header .navigation .nav-link.active,
+header.header .navigation .nav-link[aria-current="page"] {
+    color: #ffffff !important;
+
+    background: rgba(22,140,255,.14) !important;
+
+    transform: none !important;
+}
+
+
+/* ============================================================
+   RESPONSIVE — TABLET
+============================================================ */
+
+@media (max-width: 900px) {
+
+    header.header .nav-container {
+        width: calc(100% - 28px) !important;
+
+        height: 76px !important;
+        min-height: 76px !important;
+
+        gap: 18px !important;
+    }
+
+    header.header .navigation {
+        gap: 3px !important;
+    }
+
+    header.header .navigation .nav-link {
+        padding: 9px 9px !important;
+
+        font-size: .84rem !important;
+    }
+}
+
+
+/* ============================================================
+   RESPONSIVE — MOBILE
+============================================================ */
+
+@media (max-width: 700px) {
+
+    header.header {
+        height: auto !important;
+        min-height: 0 !important;
+    }
+
+    header.header .nav-container {
+        width: calc(100% - 28px) !important;
+
+        height: auto !important;
+        min-height: 0 !important;
+
+        padding: 18px 0 !important;
+
+        flex-direction: column !important;
+
+        align-items: center !important;
+
+        gap: 14px !important;
+    }
+
+    header.header .navigation {
+        width: 100% !important;
+
+        flex-wrap: wrap !important;
+
+        justify-content: center !important;
+
+        gap: 4px !important;
+    }
+
+    header.header .navigation .nav-link {
+        padding: 8px 10px !important;
+
+        font-size: .80rem !important;
+    }
+}
+
+
+/* ============================================================
+   RESPONSIVE — SMALL MOBILE
+============================================================ */
+
+@media (max-width: 480px) {
+
+    header.header .nav-container {
+        width: calc(100% - 20px) !important;
+    }
+
+    header.header .navigation {
+        gap: 2px !important;
+    }
+
+    header.header .navigation .nav-link {
+        padding: 7px 8px !important;
+
+        font-size: .76rem !important;
+    }
+}
+
+/* ============================================================
+   DEFINITIVE NAVIGATION TEXT — UPPERCASE ALL PAGES
+============================================================ */
+
+header.header .navigation .nav-link {
+    text-transform: uppercase !important;
+}
+
+
+
+
+
+/* ============================================================
+   HOME + ABOUT
+   EXTRA LOGO SPACING
+   ============================================================ */
+
+body.page-home .header .logo .logo-last,
+body.page-about .header .logo .logo-last {
+    margin-left: 14px !important;
+}
+
+
+
