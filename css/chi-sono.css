@@ -1377,19 +1377,8 @@
 
 
 .statement-text-grid {
-
-    display:
-        grid;
-
-    grid-template-columns:
-        repeat(2, minmax(0,1fr));
-
-    gap:
-        60px;
-
-    max-width:
-        1000px;
-
+    display: block;
+    max-width: 900px;
 }
 
 
@@ -1411,12 +1400,8 @@
 
 
 .statement-text-grid strong {
-
-    display:
-        block;
-
-    margin-top:
-        20px;
+    display: inline;
+    margin-top: 0;
 
     color:
         #b8c6d5;
@@ -3898,3 +3883,4 @@
 .header .navigation {
     align-items: center !important;
 }
+
