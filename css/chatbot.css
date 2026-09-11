@@ -1,4 +1,4 @@
-﻿.chatbot-toggle {
+.chatbot-toggle {
     position: fixed;
     right: 24px;
     bottom: 24px;
@@ -204,7 +204,7 @@
     outline: none;
     background: rgba(255, 255, 255, 0.045);
     color: #ffffff;
-    font-size: 12px;
+    font-size: 16px;
 }
 
 .chatbot-input-area input::placeholder {
@@ -254,7 +254,7 @@
         right: 10px;
         bottom: 82px;
         width: calc(100vw - 20px);
-        height: min(530px, calc(100vh - 105px));
+        height: min(530px, calc(100dvh - 105px));
         border-radius: 16px;
     }
 }
@@ -391,3 +391,5 @@
     position: relative;
     padding-right: 45px;
 }
+
+
