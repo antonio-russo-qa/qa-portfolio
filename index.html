@@ -113,7 +113,7 @@ h2.v:after{width:80px}
 .pg#home.on{display:block}
 #cv{position:absolute;inset:0;width:100%;height:100%;cursor:crosshair}
 .hw{position:relative;z-index:2;pointer-events:none}.hw a,.hw button{pointer-events:auto}
-#home h1{font-size:clamp(40px,6.6vw,100px);line-height:.94}
+#home h1{font-size:clamp(34px,4.4vw,72px);line-height:1}
 #tc2{animation:bl 1s steps(1) infinite}@keyframes bl{50%{opacity:0}}
 .hud{position:absolute;right:max(4.5vw,16px);bottom:28px;z-index:3;padding:12px 18px;border-radius:14px;background:color-mix(in srgb,var(--card) 85%,transparent);border:1px solid var(--bd);font-size:12px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
 .hud b{color:var(--lime);font-size:22px;margin-left:8px}
@@ -240,6 +240,18 @@ h1 b .w{background-image:linear-gradient(120deg,var(--cy),var(--lime),var(--mag)
 #intro{background:#04050b}
 #cur{background:linear-gradient(135deg,#2a1066,#04050b 55%,#06303f);color:var(--lime)}
 footer{border-color:rgba(255,255,255,.07)}
+.hl{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+.lg2{display:inline-flex;align-items:center;gap:9px;padding:6px 15px 6px 6px;border-radius:99px;border:1px solid var(--bd);background:rgba(255,255,255,.04);font-size:13px;font-family:'JetBrains Mono',monospace;color:var(--fg);transition:.25s}
+.lg2:hover{border-color:var(--lime);transform:translateY(-3px)}
+.gl{width:56px;height:56px;border-radius:14px;display:grid;place-items:center;font-weight:800;font-size:22px;margin-bottom:16px;color:#07041a;animation:bob 4s ease-in-out infinite}
+.gl.js{background:#f7df1e}.gl.ts{background:#3b82f6;color:#fff}.gl.jv{background:linear-gradient(135deg,#fb923c,#ef4444);color:#fff}
+.gl.sm{width:26px;height:26px;border-radius:50%;font-size:10px;margin:0;animation:none}
+.langs{padding:90px 0 20px}
+.bx.lg{display:flex;flex-direction:column}
+.mini{margin-top:14px;padding:12px 14px;border-radius:10px;background:#05060d;color:#cdd6f4;font-size:12px;border:1px solid var(--bd);white-space:pre-wrap;line-height:1.6;min-height:84px;overflow:hidden}
+.bx.lg .chips{margin-top:auto;padding-top:14px}
+#pf button[data-k="JavaScript"]:before,#pf button[data-k="TypeScript"]:before,#pf button[data-k="Java"]:before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px}
+#pf button[data-k="JavaScript"]:before{background:#f7df1e}#pf button[data-k="TypeScript"]:before{background:#3b82f6}#pf button[data-k="Java"]:before{background:#fb923c}
 @media(hover:none){.tr{display:none}}
 @media(hover:none){#ring{display:none}}
 @media(max-width:820px){.g2,.g3,.panel{grid-template-columns:1fr}.pipe{grid-template-columns:1fr 1fr}.pg{padding-top:110px}.pg#home{padding-top:0}.hint{display:none}.hud{bottom:70px}.hero{height:auto;min-height:100vh;padding:110px 0 80px}.hg{grid-template-columns:1fr}.pfr{width:min(74%,300px);margin:26px auto 10px}.sonar{display:none}}
@@ -258,15 +270,24 @@ footer{border-color:rgba(255,255,255,.07)}
  <div class="wrap hw hg">
   <div class="ht">
    <span class="k m rv">ANTONIO RUSSO · QA AUTOMATION ENGINEER</span>
-   <h1 class="rv">Se c'è un <s>bug</s>,<br>lo trovo <b>prima</b><br>di te.</h1>
+   <h1 class="rv">Test automation<br>per software<br><b>affidabile</b>.</h1>
    <p class="lead rv">QA Automation Engineer · API &amp; Integration Testing.<br>Automatizzo con <b class="m" id="tw" style="color:var(--lime)"></b><span class="m" id="tc2" style="color:var(--lime)">▍</span></p>
    <div class="rv" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:28px"><a class="btn p" href="#progetti">Guarda i progetti ↗</a><a class="btn" href="#metodo">Come lavoro →</a></div>
+   <div class="rv hl"><span class="lg2"><b class="gl sm js">JS</b>JavaScript</span><span class="lg2"><b class="gl sm ts">TS</b>TypeScript</span><span class="lg2"><b class="gl sm jv">Jv</b>Java</span></div>
   </div>
   <div class="hp rv"><div class="pfr" id="pfr">
       <div class="pin"><img data-i="p" alt="Antonio Russo, QA Automation Engineer"><div class="pscan"></div></div>
    <i class="cn tl"></i><i class="cn tr"></i><i class="cn bl"></i><i class="cn br"></i></div><div class="pcap m"><span>GET /api/quality → 200 OK</span><span style="animation-delay:2s">✔ 128 test passed</span><span style="animation-delay:4s">0 regressions</span></div></div>
  </div>
  </div>
+<div class="wrap langs">
+ <div class="rv"><span class="k m">LINGUAGGI E FRAMEWORK</span><h2>Codice solido per <span class="gt">test affidabili.</span></h2></div>
+ <div class="g g3">
+  <div class="bx lg rv"><div class="gl js">JS</div><h3>JavaScript</h3><p>Script e asserzioni per i test API con Postman e Newman.</p><pre class="mini m"></pre><div class="chips"><span class="chip">Postman</span><span class="chip">Newman</span></div></div>
+  <div class="bx lg rv"><div class="gl ts">TS</div><h3>TypeScript</h3><p>Test end-to-end tipizzati e framework di automazione con Playwright.</p><pre class="mini m"></pre><div class="chips"><span class="chip">Playwright</span><span class="chip">End-to-end</span></div></div>
+  <div class="bx lg rv"><div class="gl jv">Jv</div><h3>Java</h3><p>Framework di automazione UI con Selenium WebDriver, TestNG e Maven.</p><pre class="mini m"></pre><div class="chips"><span class="chip">Selenium</span><span class="chip">TestNG</span><span class="chip">Maven</span></div></div>
+ </div>
+</div>
 <div class="wrap showcase">
  <div class="rv"><span class="k m">IL SISTEMA CHE TESTO</span><h2>Dall'interfaccia al database, <span class="gt">livello per livello.</span></h2></div>
  <div class="term2 rv" id="sh"><div class="tbar m"><i></i><i></i><i></i>&nbsp; request → server → database</div>
@@ -295,7 +316,7 @@ footer{border-color:rgba(255,255,255,.07)}
 <section class="pg" id="about"><div class="wrap">
  <span class="k m rv">01 / ABOUT</span>
  <h1 class="rv">QA Automation Engineer.<br><b>API</b> &amp; Integration Testing.</h1>
- <p class="lead rv">Software Tester certificato ATSQA (ISTQB/ASTQB exam provider) con quasi 5 anni di esperienza su software enterprise: betting, IoT, cybersecurity e piattaforme digitali. Mi occupo di automazione, test API e validazione dati, con un obiettivo: stabilità delle release e prevenzione dei difetti.</p>
+ <p class="lead rv">Software Tester certificato ATSQA (ISTQB/ASTQB exam provider) con quasi 5 anni di esperienza su software enterprise: betting, IoT, cybersecurity e piattaforme digitali. Scrivo automazione in Java, TypeScript e JavaScript, testo API e valido i dati, con un obiettivo: stabilità delle release e prevenzione dei difetti.</p>
  <div class="split" style="margin-top:34px">
  <div class="ph2 rv" id="ph2"><div class="pin"><img data-i="c" alt="Antonio Russo al lavoro"><div class="pscan"></div></div><i class="cn tl"></i><i class="cn tr"></i><i class="cn bl"></i><i class="cn br"></i></div>
  <div class="rv"><span class="num m">COME LAVORO</span><h3 style="font-size:28px;margin:10px 0 14px;letter-spacing:-.03em;line-height:1.1">Qualità che si costruisce, non che si spera.</h3>
@@ -308,7 +329,7 @@ footer{border-color:rgba(255,255,255,.07)}
  </div>
  <div class="g g2" style="margin-top:16px">
   <div class="bx rv"><div class="avatar"><img data-i="p" alt="Antonio Russo"></div><h3>Antonio Russo</h3><p>Roma, Italia · Italiano (madrelingua), inglese B2, francese B2.<br>Lavoro in team Agile/Scrum con sviluppatori e infrastruttura: analizzo i requisiti, progetto i test, automatizzo i flussi critici e gestisco il ciclo di vita dei difetti.</p></div>
-  <div class="bx rv"><span class="num m">COSA FACCIO</span><ul style="margin-top:10px"><li>Test automation con Selenium WebDriver (Java, TestNG) e Playwright (TypeScript)</li><li>Test REST API e middleware con Postman, Newman e Swagger</li><li>Validazione dati con SQL e PL/SQL su Oracle</li><li>Security e performance testing: Burp Suite, OWASP ZAP, Apache JMeter</li><li>Accessibilità (WCAG), test mobile iOS/Android</li></ul></div>
+  <div class="bx rv"><span class="num m">COSA FACCIO</span><ul style="margin-top:10px"><li>Test automation in Java, TypeScript e JavaScript: Selenium WebDriver, TestNG, Playwright</li><li>Test REST API e middleware con Postman, Newman e Swagger</li><li>Validazione dati con SQL e PL/SQL su Oracle</li><li>Security e performance testing: Burp Suite, OWASP ZAP, Apache JMeter</li><li>Accessibilità (WCAG), test mobile iOS/Android</li></ul></div>
  </div>
  <h2 class="rv">Stack tecnologico</h2>
  <div class="tabs rv" id="skf"></div><div class="rv" id="skl"></div>
@@ -356,7 +377,7 @@ footer{border-color:rgba(255,255,255,.07)}
  <p class="lead rv">Contesti diversi, stesso approccio. Filtra per area tecnologica.</p>
  <div class="tabs rv" id="pf" style="margin-top:26px"></div>
  <div class="g g2" id="pl"></div>
- <h2 class="rv">Progetti personali</h2>
+ <h2 class="rv" id="hpp">Progetti personali</h2>
  <div class="g g3" id="pp2"></div>
  
 </div></section>
@@ -395,7 +416,7 @@ const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const 
 const watch=()=>$$('.rv:not(.v)').forEach(e=>io.observe(e));watch();
 
 /* ---------- about: stack ---------- */
-const stack={'Automazione':['Selenium WebDriver','Playwright','TestNG','Java','TypeScript','Maven'],'API':['REST API','Postman','Newman','Swagger','Middleware'],'Database':['SQL','PL/SQL','Oracle'],'Security & Perf':['Burp Suite','OWASP ZAP','Apache JMeter'],'Tools & ALM':['Jira','Azure DevOps','Polarion ALM','ServiceNow','Figma','Axe DevTools'],'IoT':['MQTT','Zigbee','BLE'],'Metodi':['Agile','Scrum','STLC','WCAG']};
+const stack={'Linguaggi':['JavaScript','TypeScript','Java'],'Automazione':['Selenium WebDriver','Playwright','TestNG','Maven'],'API':['REST API','Postman','Newman','Swagger','Middleware'],'Database':['SQL','PL/SQL','Oracle'],'Security & Perf':['Burp Suite','OWASP ZAP','Apache JMeter'],'Tools & ALM':['Jira','Azure DevOps','Polarion ALM','ServiceNow','Figma','Axe DevTools'],'IoT':['MQTT','Zigbee','BLE'],'Metodi':['Agile','Scrum','STLC','WCAG']};
 let sk='Tutti';function drawSk(){$('#skf').innerHTML=['Tutti',...Object.keys(stack)].map(k=>`<button class="chip ${k===sk?'on':''}" data-k="${k}">${k}</button>`).join('');
  $('#skl').innerHTML=Object.entries(stack).flatMap(([k,v])=>v.map(t=>`<span class="chip ${sk==='Tutti'||sk===k?'':'dim'}">${t}</span>`)).join('')}
 $('#skf').onclick=e=>{const b=e.target.closest('button');if(b){sk=b.dataset.k;drawSk()}};drawSk();
@@ -438,6 +459,12 @@ pm.test("schema valido", () => {
 # Esecuzione da riga di comando / CI
 newman run api-suite.postman_collection.json \\
   -e staging.postman_environment.json --reporters cli,junit`,
+'JavaScript · API':`// Test API in JavaScript
+const assert = require('node:assert');
+const res = await fetch(BASE_URL + '/api/users/1');
+assert.strictEqual(res.status, 200);
+const user = await res.json();
+assert.ok(user.id, 'manca l id utente');`,
 'SQL · Oracle':`-- Coerenza tra API e database
 SELECT o.id, o.status, p.status AS pay_status
 FROM   orders o
@@ -450,21 +477,21 @@ $('#ctabs').onclick=e=>{const b=e.target.closest('button');if(b){ck=b.dataset.k;
 
 /* ---------- progetti ---------- */
 const P=[
-{im:'j1',t:'Piattaforma enterprise di betting',c:['Automazione','API','Database'],d:'QA cross-modulo su una piattaforma di scommesse in team Agile/Scrum.',l:['Test funzionali, di integrazione, di sistema e regressione','Validazione REST API e coerenza dati con SQL su Oracle','Gestione difetti e verifica UX/UI sui design','Contributo alla riduzione dei difetti post-rilascio di circa il 30%'],x:['Postman','SQL','Oracle','Polarion','ServiceNow','Figma']},
+{im:'j1',t:'Piattaforma enterprise di betting',c:['JavaScript','Automazione','API','Database'],d:'QA cross-modulo su una piattaforma di scommesse in team Agile/Scrum.',l:['Test funzionali, di integrazione, di sistema e regressione','Validazione REST API e coerenza dati con SQL su Oracle','Gestione difetti e verifica UX/UI sui design','Contributo alla riduzione dei difetti post-rilascio di circa il 30%'],x:['JavaScript','Postman','SQL','Oracle','Polarion','ServiceNow','Figma']},
 {im:'j2',t:'Migrazione backend enterprise',c:['API','Database'],d:'Validazione post-migrazione di un backend in ambiente enterprise.',l:['Test plan e casi di test per la validazione','Test funzionali e di integrazione su API e database','Verifica della comunicazione middleware'],x:['REST API','Middleware','SQL','Jira']},
 {im:'j3',t:'IoT embedded e cybersecurity',c:['Security','IoT','API'],d:'Test di sistemi IoT embedded orientati alla sicurezza.',l:['Test funzionali, di integrazione, regressione e sicurezza','Validazione di comunicazione MQTT e Zigbee e delle API','Security test e performance test','Supporto all\'ambiente di staging'],x:['MQTT','Zigbee','Burp Suite','OWASP ZAP','JMeter']},
-{im:'j4',t:'Piattaforma VR/WebGL',c:['API','Accessibilità'],d:'Test di una piattaforma di realtà virtuale per il patrimonio culturale.',l:['Test funzionali, di integrazione e regressione in Agile','Validazione API; performance e rendering VR/WebGL','Accessibilità WCAG e test su iOS e Android'],x:['Swagger','Postman','WebGL','Axe DevTools']},
-{im:'j5',t:'Piattaforma IoT medicale',c:['Automazione','IoT','Accessibilità'],d:'Riabilitazione remota con dispositivi, cloud e app mobile.',l:['Test API REST e test automatici con Selenium','Integrazione BLE e dispositivo-cloud-mobile','App iOS e Android, accessibilità WCAG 2.1 e UX/UI','Verifica di stabilità e prestazioni'],x:['Selenium','BLE','TestFlight','APK','WCAG 2.1']},
-{im:'j6',t:'Piattaforma di analytics sportiva',c:['Automazione','API','Database','Accessibilità'],d:'Test funzionali e di regressione in team Agile/Scrum.',l:['Automazione dei flussi end-to-end con Selenium WebDriver','Test REST API; qualità dei dati con SQL/PL-SQL','Accessibilità con Axe DevTools e usabilità UI/UX'],x:['Selenium','Swagger','Postman','SQL','PL/SQL']}];
+{im:'j4',t:'Piattaforma VR/WebGL',c:['JavaScript','API','Accessibilità'],d:'Test di una piattaforma di realtà virtuale per il patrimonio culturale.',l:['Test funzionali, di integrazione e regressione in Agile','Validazione API; performance e rendering VR/WebGL','Accessibilità WCAG e test su iOS e Android'],x:['JavaScript','Swagger','Postman','WebGL','Axe DevTools']},
+{im:'j5',t:'Piattaforma IoT medicale',c:['Java','Automazione','IoT','Accessibilità'],d:'Riabilitazione remota con dispositivi, cloud e app mobile.',l:['Test API REST e test automatici con Selenium','Integrazione BLE e dispositivo-cloud-mobile','App iOS e Android, accessibilità WCAG 2.1 e UX/UI','Verifica di stabilità e prestazioni'],x:['Java','Selenium','BLE','TestFlight','APK','WCAG 2.1']},
+{im:'j6',t:'Piattaforma di analytics sportiva',c:['Java','JavaScript','Automazione','API','Database','Accessibilità'],d:'Test funzionali e di regressione in team Agile/Scrum.',l:['Automazione dei flussi end-to-end con Selenium WebDriver','Test REST API; qualità dei dati con SQL/PL-SQL','Accessibilità con Axe DevTools e usabilità UI/UX'],x:['Java','JavaScript','Selenium','Swagger','Postman','SQL','PL/SQL']}];
 const PP=[
-{t:'Framework di automazione UI',d:'Framework end-to-end per applicazioni web.',x:['Java','Selenium WebDriver','TestNG','Maven']},
-{t:'Automazione API',d:'Validazione automatica di API REST con collection eseguite da riga di comando.',x:['TypeScript','Postman','Newman']},
-{t:'Suite UI cross-browser',d:'Test UI su più browser con test moderni e affidabili.',x:['TypeScript','Playwright']}];
-const cats=['Tutti','Automazione','API','Database','Security','IoT','Accessibilità'];let pc='Tutti';
+{c:['Java','Automazione'],t:'Framework di automazione UI',d:'Framework end-to-end per applicazioni web.',x:['Java','Selenium WebDriver','TestNG','Maven']},
+{c:['TypeScript','JavaScript','API'],t:'Automazione API',d:'Validazione automatica di API REST con collection eseguite da riga di comando.',x:['TypeScript','Postman','Newman']},
+{c:['TypeScript','Automazione'],t:'Suite UI cross-browser',d:'Test UI su più browser con test moderni e affidabili.',x:['TypeScript','Playwright']}];
+const cats=['Tutti','JavaScript','TypeScript','Java','Automazione','API','Database','Security','IoT','Accessibilità'];let pc='Tutti';
 $('#pf').innerHTML=cats.map(c=>`<button class="chip ${c===pc?'on':''}" data-k="${c}">${c}</button>`).join('');
 const card=(p,i)=>`<div class="bx card-p rv" data-c="${(p.c||[]).join(',')}">${p.im?`<div class="cimg"><img data-i="${p.im}" alt="${p.t}"></div>`:''}<span class="num m">${String(i+1).padStart(2,'0')}</span><h3>${p.t}</h3><p>${p.d}</p>${p.l?'<ul style="margin-top:10px">'+p.l.map(x=>`<li>${x}</li>`).join('')+'</ul>':''}<div class="chips">${p.x.map(x=>`<span class="chip">${x}</span>`).join('')}</div></div>`;
 $('#pl').innerHTML=P.map(card).join('');$('#pp2').innerHTML=PP.map(card).join('');watch();
-$('#pf').onclick=e=>{const b=e.target.closest('button');if(!b)return;pc=b.dataset.k;$$('#pf button').forEach(x=>x.classList.toggle('on',x===b));$$('#pl .card-p').forEach(c=>{c.classList.toggle('hide',pc!=='Tutti'&&!c.dataset.c.split(',').includes(pc));c.style.animation='none';c.offsetWidth;c.style.animation='pop .5s cubic-bezier(.2,.8,.2,1) backwards'})};
+$('#pf').onclick=e=>{const b=e.target.closest('button');if(!b)return;pc=b.dataset.k;$$('#pf button').forEach(x=>x.classList.toggle('on',x===b));$$('#pl .card-p,#pp2 .card-p').forEach(c=>{c.classList.toggle('hide',pc!=='Tutti'&&!c.dataset.c.split(',').includes(pc));c.style.animation='none';c.offsetWidth;c.style.animation='pop .5s cubic-bezier(.2,.8,.2,1) backwards'});$('#hpp').style.display=$$('#pp2 .card-p:not(.hide)').length?'':'none'};
 
 /* ---------- contatti ---------- */
 /* ---------- animazioni globali ---------- */
@@ -482,7 +509,7 @@ $$('.btn,.mail').forEach(b=>{b.addEventListener('pointermove',e=>{const r=b.getB
 const mo=new MutationObserver(m=>m.forEach(r=>[...r.target.querySelectorAll('.chip')].forEach((c,i)=>c.style.setProperty('--i',i))));
 ['#skl','#ptc','#pl','#pp2'].forEach(s=>mo.observe($(s),{childList:true}));
 /* ---------- home: parole che si scrivono ---------- */
-const words=['Selenium + Java','Playwright + TypeScript','Postman + Newman','SQL + PL/SQL','JMeter + OWASP ZAP'];let wi=0,wc=0,wd=0;
+const words=['Java + Selenium','TypeScript + Playwright','JavaScript + Postman','SQL + PL/SQL','JMeter + OWASP ZAP'];let wi=0,wc=0,wd=0;
 setInterval(()=>{const w=words[wi];if(!wd){wc++;if(wc>=w.length+12)wd=1}else{wc--;if(wc<=0){wd=0;wi=(wi+1)%words.length}}$('#tw').textContent=w.slice(0,wc)},70);
 /* ---------- home: rete di sistema e bug da schiacciare ---------- */
 const cv=$('#cv'),cx=cv.getContext('2d'),nodes=[],bugs=[],fx=[];let W=0,H=0,mx=-999,my=-999,score=0,inited=1;
@@ -516,6 +543,12 @@ const intro=$('#intro'),il=$('#il'),LN=['> npm run qa-suite','> caricamento test
 pTilt($('#ph2'),8,1);
 pTilt($('#ph3'),8,1);
 
+
+/* ---------- linguaggi: snippet che si scrivono ---------- */
+const MT=['pm.test("status 200", () =>\n  pm.response.to.have.status(200));','await expect(\n  page.getByTestId("dashboard")\n).toBeVisible();','Assert.assertTrue(\n  driver.findElement(\n    By.id("dashboard"))\n    .isDisplayed());'];
+const mio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){typeInto(e.target,e.target.dataset.t);mio.unobserve(e.target)}}),{threshold:.6});
+$$('.mini').forEach((m,i)=>{m.dataset.t=MT[i];mio.observe(m)});
 </script>
 </body>
 </html>
+
