@@ -1,4 +1,4 @@
-﻿<#
+<#
   Pubblica il sito su GitHub Pages.
 
   COME SI USA
