@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="color-scheme" content="dark"><meta name="theme-color" content="#070a14">
 <meta name="description" content="Antonio Russo — QA Automation Engineer. API & Integration Testing, Selenium, Playwright, Postman, SQL.">
 <title>Antonio Russo | QA Automation Engineer</title>
+<script>if(matchMedia("(hover:none),(max-width:820px)").matches||(navigator.hardwareConcurrency||8)<=2)document.documentElement.classList.add("lite")</script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
 :root{--bg:#070a14;--fg:#eef1fb;--mut:#8f98b3;--card:#0e1322;--bd:rgba(160,175,255,.13);--lime:#c6ff3d;--cy:#38e1ff;--bad:#ff5470;--on:#0a1204;
@@ -252,6 +253,19 @@ footer{border-color:rgba(255,255,255,.07)}
 .bx.lg .chips{margin-top:auto;padding-top:14px}
 #pf button[data-k="JavaScript"]:before,#pf button[data-k="TypeScript"]:before,#pf button[data-k="Java"]:before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px}
 #pf button[data-k="JavaScript"]:before{background:#f7df1e}#pf button[data-k="TypeScript"]:before{background:#3b82f6}#pf button[data-k="Java"]:before{background:#fb923c}
+html.lite{scroll-behavior:auto}
+.lite body:after,.lite .fg,.lite .hero:after,.lite .blob,.lite .sonar,.lite #intro,.lite #cur,.lite #gl,.lite #ring,.lite .tr,.lite .sp{display:none!important}
+.lite body{background-attachment:scroll}
+.lite nav{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(10,12,26,.94);box-shadow:none}
+.lite .pin,.lite .term2,.lite .ed,.lite .ph2 .pin,.lite .bx{box-shadow:none}
+.lite .pfr:before,.lite .ph2:before,.lite .bx:after,.lite .cimg:before{display:none}
+.lite .cimg:after,.lite .pscan,.lite .scan2,.lite .cn,.lite .btn.p:after,.lite .gl,.lite .mail,.lite .tl>div:before,.lite .fc,.lite .stat b,.lite .dot,.lite .k:before{animation:none!important}
+.lite .bx:hover{background:linear-gradient(160deg,#111430,#090b17);animation:none;box-shadow:none;border-color:rgba(167,139,250,.5)}
+.lite .pg.on{animation-duration:.25s}
+.lite .rv{transition-duration:.45s}
+.lite .cimg img,.lite .card-p.v .cimg img{animation:none}
+.lite .card-p:hover .cimg img{transform:none}
+@media(max-width:520px){nav a{padding:8px 10px;font-size:12px}}
 @media(hover:none){.tr{display:none}}
 @media(hover:none){#ring{display:none}}
 @media(max-width:820px){.g2,.g3,.panel{grid-template-columns:1fr}.pipe{grid-template-columns:1fr 1fr}.pg{padding-top:110px}.pg#home{padding-top:0}.hint{display:none}.hud{bottom:70px}.hero{height:auto;min-height:100vh;padding:110px 0 80px}.hg{grid-template-columns:1fr}.pfr{width:min(74%,300px);margin:26px auto 10px}.sonar{display:none}}
@@ -405,11 +419,12 @@ footer{border-color:rgba(255,255,255,.07)}
 
 <script>
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const LITE=document.documentElement.classList.contains('lite');let lf=0;
 const IMG={p:"images/antonio.jpg",c:"images/chi-sono.jpg",k:"images/coding.jpg",s:"images/testing-profile.jpg",j1:"images/progetto-enterprise-qa.jpg",j2:"images/progetto-backend-migration.jpg",j3:"images/progetto-iot-security.jpg",j4:"images/progetto-vr-webgl.jpg",j5:"images/progetto-medical-iot.jpg",j6:"images/progetto-sports-analytics.jpg"};
 /* ---------- router ---------- */
 function route(){const id=['home','about','metodo','progetti','contatti'].includes(location.hash.slice(1))?location.hash.slice(1):'home';
- $$('.pg').forEach(p=>p.classList.toggle('on',p.id===id));$$('nav a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+id));scrollTo(0,0);$$('.pg.on .k').forEach(scramble);if(id==='home')setTimeout(rs,30);moveInd()}
-addEventListener('hashchange',()=>{const c=$('#cur');c.classList.remove('go');c.offsetWidth;c.classList.add('go');setTimeout(route,330)});route();
+ $$('.pg').forEach(p=>p.classList.toggle('on',p.id===id));$$('nav a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+id));scrollTo({top:0,left:0,behavior:'instant'});$$('.pg.on .k').forEach(scramble);if(id==='home')setTimeout(rs,30);moveInd()}
+addEventListener('hashchange',()=>{if(LITE){route();return}const c=$('#cur');c.classList.remove('go');c.offsetWidth;c.classList.add('go');setTimeout(route,330)});route();
 addEventListener('pointermove',e=>{const g=$('#gl');g.style.left=e.clientX+'px';g.style.top=e.clientY+'px'});
 document.addEventListener('pointermove',e=>{const c=e.target.closest&&e.target.closest('.bx');if(!c)return;const r=c.getBoundingClientRect();c.style.setProperty('--mx',e.clientX-r.left+'px');c.style.setProperty('--my',e.clientY-r.top+'px')});
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const t=e.target;t.style.transitionDelay=Math.min([...t.parentNode.children].indexOf(t),6)*90+'ms';t.classList.add('v');if(t.classList.contains('stat'))countUp(t.querySelector('b'));setTimeout(()=>{t.style.transitionDelay='';t.classList.add('done')},1500);io.unobserve(t)}}),{threshold:.1});
@@ -513,15 +528,15 @@ const words=['Java + Selenium','TypeScript + Playwright','JavaScript + Postman',
 setInterval(()=>{const w=words[wi];if(!wd){wc++;if(wc>=w.length+12)wd=1}else{wc--;if(wc<=0){wd=0;wi=(wi+1)%words.length}}$('#tw').textContent=w.slice(0,wc)},70);
 /* ---------- home: rete di sistema e bug da schiacciare ---------- */
 const cv=$('#cv'),cx=cv.getContext('2d'),nodes=[],bugs=[],fx=[];let W=0,H=0,mx=-999,my=-999,score=0,inited=1;
-function rs(){const r=devicePixelRatio||1;W=cv.clientWidth;H=cv.clientHeight;cv.width=W*r;cv.height=H*r;cx.setTransform(r,0,0,r,0,0);nodes.forEach(n=>{if(n.x>W)n.x=Math.random()*W;if(n.y>H)n.y=Math.random()*H})}
+function rs(){const r=Math.min(devicePixelRatio||1,LITE?1:2);W=cv.clientWidth;H=cv.clientHeight;cv.width=W*r;cv.height=H*r;cx.setTransform(r,0,0,r,0,0);nodes.forEach(n=>{if(n.x>W)n.x=Math.random()*W;if(n.y>H)n.y=Math.random()*H})}
 addEventListener('resize',rs);
-for(let i=0;i<70;i++)nodes.push({x:Math.random()*innerWidth,y:Math.random()*innerHeight,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35});
+for(let i=0;i<(LITE?24:70);i++)nodes.push({x:Math.random()*innerWidth,y:Math.random()*innerHeight,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35});
 function spawn(){bugs.push({x:Math.random()<.5?-20:W+20,y:Math.random()*H*.9+H*.05,a:Math.random()*6.28,s:.7+Math.random()*.9,t:0})}
 cv.addEventListener('pointermove',e=>{const r=cv.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top});
 cv.addEventListener('pointerleave',()=>{mx=my=-999});
 cv.addEventListener('pointerdown',e=>{const r=cv.getBoundingClientRect(),px=e.clientX-r.left,py=e.clientY-r.top;for(let i=bugs.length-1;i>=0;i--){const b=bugs[i];if(Math.hypot(b.x-px,b.y-py)<32){bugs.splice(i,1);score++;$('#score').textContent=score;for(let k=0;k<16;k++)fx.push({x:b.x,y:b.y,vx:(Math.random()-.5)*7,vy:(Math.random()-.5)*7,l:1});setTimeout(spawn,1200);return}}});
-function loop(){requestAnimationFrame(loop);if(!$('#home').classList.contains('on'))return;if(!W)rs();if(!inited){inited=1;for(let i=0;i<6;i++)spawn()}
- const st=getComputedStyle(document.documentElement),lime=st.getPropertyValue('--lime').trim(),cy=st.getPropertyValue('--cy').trim();cx.clearRect(0,0,W,H);
+function loop(){requestAnimationFrame(loop);if(!$('#home').classList.contains('on')||(LITE&&(lf++&1)))return;if(!W)rs();if(!inited){inited=1;for(let i=0;i<6;i++)spawn()}
+ const lime='#a78bfa',cy='#22d3ee';cx.clearRect(0,0,W,H);
  nodes.forEach(n=>{n.x+=n.vx;n.y+=n.vy;if(n.x<0||n.x>W)n.vx*=-1;if(n.y<0||n.y>H)n.vy*=-1;const d=Math.hypot(n.x-mx,n.y-my);if(d<150){n.x+=(n.x-mx)/d*1.4;n.y+=(n.y-my)/d*1.4}});
  for(let i=0;i<nodes.length;i++){for(let j=i+1;j<nodes.length;j++){const d=Math.hypot(nodes[i].x-nodes[j].x,nodes[i].y-nodes[j].y);if(d<130){cx.strokeStyle=cy;cx.globalAlpha=(1-d/130)*.35;cx.beginPath();cx.moveTo(nodes[i].x,nodes[i].y);cx.lineTo(nodes[j].x,nodes[j].y);cx.stroke()}}cx.globalAlpha=.8;cx.fillStyle=lime;cx.beginPath();cx.arc(nodes[i].x,nodes[i].y,2,0,7);cx.fill()}
  cx.globalAlpha=1;cx.font='26px serif';cx.textAlign='center';cx.textBaseline='middle';
@@ -530,14 +545,14 @@ function loop(){requestAnimationFrame(loop);if(!$('#home').classList.contains('o
  for(let i=fx.length-1;i>=0;i--)if(fx[i].l<=0)fx.splice(i,1)}
 loop();
 /* ---------- foto, intro, scie, navigazione ---------- */
-$$('img[data-i]').forEach(i=>i.src=IMG[i.dataset.i]);
+$$('img[data-i]').forEach(i=>{i.decoding='async';i.src=IMG[i.dataset.i]});
 function moveInd(){const a=$('nav a.on'),i=$('#ind');if(a&&i){i.style.left=a.offsetLeft+'px';i.style.width=a.offsetWidth+'px'}}
 addEventListener('load',moveInd);addEventListener('resize',moveInd);moveInd();
 function pTilt(el,k,par){el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect(),px=(e.clientX-r.left)/r.width-.5,py=(e.clientY-r.top)/r.height-.5;el.style.transform=`perspective(900px) rotateY(${px*k}deg) rotateX(${-py*k}deg)`;if(par)el.querySelector('img').style.transform=`translate(${-px*18}px,${-py*18}px)`});el.addEventListener('pointerleave',()=>{el.style.transform='';if(par)el.querySelector('img').style.transform=''})}
 pTilt($('#pfr'),14,1);pTilt($('#sh'),4,0);
 {const b=$('#sh img.base'),c=b.cloneNode();c.className='lit';c.src=IMG.s;b.after(c);$('#sh .imgw').addEventListener('pointermove',e=>{const r=e.currentTarget.getBoundingClientRect();c.style.setProperty('--x',e.clientX-r.left+'px');c.style.setProperty('--y',e.clientY-r.top+'px')})}
 $$('.pg:not(#home) .lead').forEach(h=>splitWords(h,{n:0,cls:'wl'}));
-let lt=0;addEventListener('pointermove',e=>{const n=performance.now();if(n-lt<45)return;lt=n;const d=document.createElement('i');d.className='tr';d.style.left=e.clientX+'px';d.style.top=e.clientY+'px';document.body.appendChild(d);setTimeout(()=>d.remove(),600)});
+let lt=0;addEventListener('pointermove',e=>{const n=performance.now();if(LITE||n-lt<45)return;lt=n;const d=document.createElement('i');d.className='tr';d.style.left=e.clientX+'px';d.style.top=e.clientY+'px';document.body.appendChild(d);setTimeout(()=>d.remove(),600)});
 const intro=$('#intro'),il=$('#il'),LN=['> npm run qa-suite','> caricamento test…','> ✔ 128 passed · 0 failed'];let lni=0;
 (function nx(){if(lni<LN.length){il.insertAdjacentHTML('beforeend','<div>'+LN[lni++]+'</div>');setTimeout(nx,420)}else setTimeout(()=>{intro.classList.add('out');setTimeout(()=>intro.remove(),700)},450)})();
 pTilt($('#ph2'),8,1);
@@ -551,4 +566,3 @@ $$('.mini').forEach((m,i)=>{m.dataset.t=MT[i];mio.observe(m)});
 </script>
 </body>
 </html>
-
