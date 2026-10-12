@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="it" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="color-scheme" content="dark"><meta name="theme-color" content="#070a14">
+<meta name="description" content="Antonio Russo — QA Automation Engineer. API & Integration Testing, Selenium, Playwright, Postman, SQL.">
+<title>Antonio Russo | QA Automation Engineer</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root{--bg:#070a14;--fg:#eef1fb;--mut:#8f98b3;--card:#0e1322;--bd:rgba(160,175,255,.13);--lime:#c6ff3d;--cy:#38e1ff;--bad:#ff5470;--on:#0a1204;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f3f5fb;--fg:#0b1020;--mut:#566079;--card:#fff;--bd:rgba(11,16,32,.12);--lime:#4d7c0f;--cy:#0e7490;--bad:#e11d48;--on:#fff}}
+html{scroll-behavior:smooth;scroll-padding-top:90px;height:100%}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--fg);font-family:'Sora',system-ui,sans-serif;line-height:1.6;overflow-x:hidden;min-height:100%}
+body:before{content:"";position:fixed;inset:0;z-index:-2;background-image:linear-gradient(var(--bd) 1px,transparent 1px),linear-gradient(90deg,var(--bd) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(ellipse at 50% 0,#000 10%,transparent 70%);mask-image:radial-gradient(ellipse at 50% 0,#000 10%,transparent 70%)}
+#gl{position:fixed;width:460px;height:460px;border-radius:50%;pointer-events:none;z-index:-1;transform:translate(-50%,-50%);left:50%;top:20%;background:radial-gradient(circle,color-mix(in srgb,var(--lime) 14%,transparent),transparent 65%)}
+a{color:inherit;text-decoration:none}.m{font-family:'JetBrains Mono',ui-monospace,monospace}
+.wrap{width:min(1120px,91%);margin:0 auto}
+nav{position:fixed;top:calc(14px + env(safe-area-inset-top,0px));left:50%;transform:translateX(-50%);z-index:50;display:flex;gap:4px;padding:6px;border-radius:99px;background:color-mix(in srgb,var(--card) 82%,transparent);border:1px solid var(--bd);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);max-width:94vw;overflow-x:auto}
+nav a{padding:8px 16px;border-radius:99px;font-size:13px;color:var(--mut);white-space:nowrap;transition:.25s}
+nav a:hover{color:var(--fg)}nav a.on{color:var(--on)}nav a{position:relative;z-index:1}#ind{position:absolute;top:6px;bottom:6px;left:0;width:0;border-radius:99px;background:var(--lime);transition:left .45s cubic-bezier(.2,.8,.2,1),width .45s cubic-bezier(.2,.8,.2,1);z-index:0}
+.pg{display:none;padding:130px 0 90px;min-height:100vh}.pg.on{display:block;animation:pgin .6s cubic-bezier(.2,.8,.2,1)}
+@keyframes pgin{from{opacity:0;transform:translateY(24px)}}
+.k{color:var(--lime);font-size:12px;letter-spacing:.22em}
+h1{font-size:clamp(38px,7vw,88px);line-height:.98;letter-spacing:-.045em;font-weight:800;margin:14px 0 22px}
+h1 b{color:var(--lime)}
+h2{font-size:clamp(26px,3.6vw,40px);letter-spacing:-.03em;margin:64px 0 24px;font-weight:800}
+.lead{color:var(--mut);font-size:18px;max-width:680px}
+.btn{display:inline-block;padding:14px 24px;border-radius:14px;font-weight:600;font-size:14px;border:1px solid var(--bd);background:var(--card);cursor:pointer;color:var(--fg);font-family:inherit;transition:.25s}
+.btn:hover{transform:translateY(-3px);border-color:var(--lime)}.btn.p{background:var(--lime);color:var(--on);border:0;box-shadow:0 12px 36px -14px var(--lime)}
+.g{display:grid;gap:16px}.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}
+.bx{position:relative;padding:26px;border-radius:24px;background:var(--card);border:1px solid var(--bd);overflow:hidden;transition:transform .2s,border-color .3s}
+.bx:hover{border-color:var(--lime)}
+.bx:before{content:"";position:absolute;inset:0;background:radial-gradient(280px circle at var(--mx,50%) var(--my,0),color-mix(in srgb,var(--lime) 15%,transparent),transparent 70%);opacity:0;transition:.3s;pointer-events:none}
+.bx:hover:before{opacity:1}.bx>*{position:relative}
+.bx h3{font-size:20px;margin:8px 0;letter-spacing:-.02em}.bx p,.bx li{color:var(--mut);font-size:14.5px}.bx ul{padding-left:18px}
+.num{font-size:11px;color:var(--lime);letter-spacing:.14em}
+.chip{display:inline-block;padding:5px 12px;margin:3px 4px 3px 0;border-radius:99px;border:1px solid var(--bd);font-size:12px;color:var(--cy);background:transparent;cursor:default;transition:.25s;font-family:'JetBrains Mono',monospace}
+button.chip{cursor:pointer;color:var(--mut)}button.chip:hover{border-color:var(--lime);color:var(--fg)}button.chip.on{background:var(--lime);color:var(--on);border-color:var(--lime)}
+.chip.dim{opacity:.18}
+.avatar{width:96px;height:96px;border-radius:26px;background:linear-gradient(135deg,var(--lime),var(--cy));display:grid;place-items:center;font-weight:800;font-size:34px;color:var(--on);position:relative;overflow:hidden;margin-bottom:18px}
+.avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.stat b{display:block;font-size:46px;line-height:1;font-weight:800;letter-spacing:-.04em;color:var(--lime)}.stat span{font-size:12px;color:var(--mut);letter-spacing:.08em}
+.tl{border-left:2px solid var(--bd);margin-left:6px}.tl>div{position:relative;padding:0 0 28px 26px}
+.tl>div:before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 5px color-mix(in srgb,var(--lime) 18%,transparent)}
+.tl h3{font-size:19px}.tl p{color:var(--mut);font-size:14.5px;margin:4px 0 8px}
+.pipe{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:34px 0 16px}
+.pipe button{padding:16px 8px;border-radius:16px;border:1px solid var(--bd);background:var(--card);color:var(--mut);cursor:pointer;font-family:inherit;font-size:13px;font-weight:600;transition:.3s}
+.pipe button span{display:block;font-size:11px;font-family:'JetBrains Mono',monospace;margin-bottom:3px}
+.pipe button.on{background:var(--lime);color:var(--on);border-color:var(--lime);transform:translateY(-4px);box-shadow:0 14px 34px -14px var(--lime)}
+.panel{display:grid;grid-template-columns:1fr 1fr;gap:22px;padding:30px;border-radius:26px;background:var(--card);border:1px solid var(--bd);min-height:220px}
+.panel h3{font-size:26px;letter-spacing:-.03em;margin-bottom:8px}.panel p{color:var(--mut);margin-bottom:14px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+pre{padding:20px;border-radius:18px;background:#05070e;color:#cdd6f4;font-size:13px;overflow:auto;white-space:pre;border:1px solid var(--bd);line-height:1.7}
+.pc{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+.card-p{display:flex;flex-direction:column}.card-p .chips{margin-top:auto;padding-top:14px}
+.card-p.hide{display:none}
+form{display:grid;gap:12px}
+input,textarea{width:100%;padding:14px 16px;border-radius:14px;border:1px solid var(--bd);background:transparent;color:var(--fg);font-family:inherit;font-size:14px}
+input:focus,textarea:focus{outline:0;border-color:var(--lime)}
+.mail{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 20px;border-radius:16px;border:1px dashed var(--lime);color:var(--lime);font-size:14px;cursor:pointer;background:transparent;width:100%;font-family:'JetBrains Mono',monospace;margin-bottom:14px}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--lime);box-shadow:0 0 12px var(--lime);margin-right:8px;animation:pu 1.6s infinite}@keyframes pu{50%{opacity:.3}}
+#toast{position:fixed;bottom:calc(24px + env(safe-area-inset-bottom,0px));left:50%;transform:translate(-50%,40px);opacity:0;padding:12px 20px;border-radius:12px;background:var(--lime);color:var(--on);font-size:13px;transition:.4s;z-index:90}
+#toast.s{transform:translate(-50%,0);opacity:1}
+footer{padding:28px 0 46px;text-align:center;color:var(--mut);font-size:12px;border-top:1px solid var(--bd)}
+.rv{opacity:0;transform:translateY(30px);transition:opacity .8s,transform .8s cubic-bezier(.2,.8,.2,1)}.rv.v{opacity:1;transform:none}
+#prog{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--lime),var(--cy));z-index:100;box-shadow:0 0 12px var(--lime)}
+#ring{position:fixed;left:0;top:0;width:30px;height:30px;margin:-15px 0 0 -15px;border:1.5px solid var(--lime);border-radius:50%;pointer-events:none;z-index:99;transition:width .25s,height .25s,margin .25s,background .25s;opacity:.7}
+#ring.big{width:56px;height:56px;margin:-28px 0 0 -28px;background:color-mix(in srgb,var(--lime) 14%,transparent)}
+.sp{position:fixed;width:6px;height:6px;border-radius:50%;background:var(--lime);pointer-events:none;z-index:99;animation:spark .7s forwards}
+@keyframes spark{to{transform:translate(var(--dx),var(--dy)) scale(0);opacity:0}}
+.blob{position:fixed;width:520px;height:520px;border-radius:50%;filter:blur(120px);opacity:.2;z-index:-1;pointer-events:none;animation:fl 18s ease-in-out infinite alternate}
+.b1{background:var(--lime);top:-160px;left:-120px}.b2{background:var(--cy);bottom:-180px;right:-140px;animation-delay:-9s}
+@keyframes fl{to{transform:translate(90px,70px) scale(1.15)}}
+nav{animation:navin .9s cubic-bezier(.2,.8,.2,1) backwards}
+@keyframes navin{from{transform:translate(-50%,-90px);opacity:0}}
+.w{display:inline-block;transition:transform .3s;animation:wr .8s cubic-bezier(.2,.8,.2,1) backwards;animation-delay:calc(var(--i)*70ms + .15s)}.w:hover{transform:translateY(-8px) skewX(-8deg)}
+.wl{display:inline-block;animation:wr .7s cubic-bezier(.2,.8,.2,1) backwards;animation-delay:calc(var(--i)*22ms + .5s)}
+h1 b .w{background:linear-gradient(120deg,var(--lime),var(--cy),var(--lime));background-size:220% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:wr .8s cubic-bezier(.2,.8,.2,1) backwards,sh 5s linear infinite;animation-delay:calc(var(--i)*70ms + .15s),0s}
+@keyframes wr{from{opacity:0;transform:translateY(.6em) rotate(4deg)}}
+@keyframes sh{to{background-position:220% 0}}
+h1 s{text-decoration:none;color:var(--bad);position:relative}
+h1 s:after{content:"";position:absolute;left:-2%;right:-2%;top:52%;height:.07em;background:var(--bad);transform:scaleX(0);transform-origin:left;animation:strike 1s 1.2s forwards}
+@keyframes strike{to{transform:scaleX(1)}}
+h2:after{content:"";display:block;height:3px;width:0;margin-top:10px;background:linear-gradient(90deg,var(--lime),var(--cy));transition:width 1s .3s}
+h2.v:after{width:80px}
+.bx:after{content:"";position:absolute;top:0;left:-120%;width:60%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.07),transparent);transition:left .9s;pointer-events:none}
+.bx:hover:after{left:130%}
+.bx.rv.done{transition:transform .2s,border-color .3s,opacity .8s}
+.avatar{animation:bob 4s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-8px)}}
+.stat b{animation:glow 3s ease-in-out infinite}
+@keyframes glow{50%{text-shadow:0 0 24px color-mix(in srgb,var(--lime) 60%,transparent)}}
+.tl{position:relative}
+.tl:before{content:"";position:absolute;left:-2px;top:0;bottom:0;width:2px;background:linear-gradient(var(--lime),var(--cy));transform:scaleY(0);transform-origin:top;transition:transform 1.8s cubic-bezier(.2,.8,.2,1)}
+.tl.v:before{transform:scaleY(1)}
+.tl>div:before{animation:ring 2.4s infinite}
+@keyframes ring{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--lime) 50%,transparent)}100%{box-shadow:0 0 0 12px transparent}}
+.pipe button{position:relative;overflow:hidden}
+.pipe button.on:after{content:"";position:absolute;left:0;bottom:0;height:3px;background:var(--on);animation:fb 4.5s linear forwards}
+@keyframes fb{from{width:0}to{width:100%}}
+.v .chip,#skl .chip,#ptc .chip{animation:pop .45s cubic-bezier(.2,.8,.2,1) backwards;animation-delay:calc(var(--i,0)*35ms)}
+@keyframes pop{from{opacity:0;transform:scale(.6)}}
+.mail{animation:mp 2.4s infinite}
+@keyframes mp{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--lime) 40%,transparent)}100%{box-shadow:0 0 0 16px transparent}}
+.mq{overflow:hidden;border-block:1px solid var(--bd);padding:18px 0;margin-top:40px}
+.mq div{display:flex;gap:50px;width:max-content;animation:mq 30s linear infinite;font-size:clamp(26px,5vw,52px);font-weight:800;letter-spacing:-.03em;color:transparent;-webkit-text-stroke:1px var(--mut);white-space:nowrap}
+.mq div span:nth-child(3n){color:var(--lime);-webkit-text-stroke:0}
+.mq:hover div{animation-play-state:paused}
+@keyframes mq{to{transform:translateX(-50%)}}
+.pg#home{padding:0;position:relative}
+.pg#home.on{display:block}
+#cv{position:absolute;inset:0;width:100%;height:100%;cursor:crosshair}
+.hw{position:relative;z-index:2;pointer-events:none}.hw a,.hw button{pointer-events:auto}
+#home h1{font-size:clamp(40px,6.6vw,100px);line-height:.94}
+#tc2{animation:bl 1s steps(1) infinite}@keyframes bl{50%{opacity:0}}
+.hud{position:absolute;right:max(4.5vw,16px);bottom:28px;z-index:3;padding:12px 18px;border-radius:14px;background:color-mix(in srgb,var(--card) 85%,transparent);border:1px solid var(--bd);font-size:12px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.hud b{color:var(--lime);font-size:22px;margin-left:8px}
+.hint{position:absolute;left:max(4.5vw,16px);bottom:28px;z-index:3;font-size:12px;color:var(--mut)}
+@property --ang{syntax:'<angle>';inherits:false;initial-value:0deg}
+@keyframes spin{to{--ang:360deg}}
+.bx:hover{border-color:transparent;background:linear-gradient(var(--card),var(--card)) padding-box,conic-gradient(from var(--ang),var(--lime),var(--cy),transparent 40%,var(--lime)) border-box;animation:spin 3s linear infinite}
+.g>.rv:nth-child(3n+1){transform:translate(-36px,24px)}.g>.rv:nth-child(3n){transform:translate(36px,24px)}.g>.rv.v{transform:none}
+.btn.p{position:relative;overflow:hidden}.btn.p:after{content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.5),transparent);animation:shn 3s infinite}
+@keyframes shn{60%,100%{left:140%}}
+.chip:hover{transform:translateY(-3px) rotate(-2deg);border-color:var(--lime)}
+.hero{position:relative;height:100vh;min-height:640px;display:flex;align-items:center;overflow:hidden}
+.hg{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.hp,.hp *{pointer-events:auto}.hp{display:flex;flex-direction:column;align-items:center}
+.pfr{position:relative;width:min(100%,370px);aspect-ratio:4/5;isolation:isolate;transition:transform .15s}
+.pfr:before{content:"";position:absolute;inset:-4px;border-radius:32px;background:conic-gradient(from var(--ang),var(--lime),var(--cy),transparent 40%,var(--lime));animation:spin 4s linear infinite;filter:blur(16px);opacity:.7;z-index:-1}
+.pin{position:absolute;inset:0;border-radius:28px;overflow:hidden;border:1px solid var(--bd);background:#0a1020;box-shadow:0 40px 90px -40px var(--cy)}
+.pin img{position:absolute;inset:-6%;width:112%;height:112%;object-fit:cover;object-position:center 15%;transition:transform .2s}
+.pscan{position:absolute;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--lime),transparent);box-shadow:0 0 22px var(--lime);animation:sc 3.6s ease-in-out infinite alternate}
+@keyframes sc{from{top:2%}to{top:98%}}
+.cn{position:absolute;width:26px;height:26px;border:2px solid var(--lime);z-index:4;animation:cp 2s ease-in-out infinite}
+@keyframes cp{50%{width:36px;height:36px}}
+.cn.tl{top:12px;left:12px;border-right:0;border-bottom:0}.cn.tr{top:12px;right:12px;border-left:0;border-bottom:0}.cn.bl{bottom:12px;left:12px;border-right:0;border-top:0}.cn.br{bottom:12px;right:12px;border-left:0;border-top:0}
+.fc{position:absolute;z-index:5;padding:8px 13px;border-radius:12px;background:color-mix(in srgb,var(--card) 82%,transparent);border:1px solid var(--bd);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);font-size:12px;color:var(--cy);white-space:nowrap;animation:bob 5s ease-in-out infinite}
+.orb{position:absolute;inset:-12%;border-radius:50%;border:1px dashed var(--bd);animation:orbit 24s linear infinite;pointer-events:none;z-index:3}
+.orb span{position:absolute;translate:-50% -50%;padding:6px 12px;border-radius:99px;background:color-mix(in srgb,var(--card) 88%,transparent);border:1px solid var(--bd);color:var(--lime);font-size:12px;font-family:'JetBrains Mono',monospace;white-space:nowrap;animation:orbit 24s linear infinite reverse}
+@keyframes orbit{to{transform:rotate(360deg)}}
+.showcase{padding:90px 0 40px}
+.gt{background:linear-gradient(120deg,var(--lime),var(--cy));-webkit-background-clip:text;background-clip:text;color:transparent}
+.term2{border-radius:22px;border:1px solid var(--bd);background:#070b16;overflow:hidden;box-shadow:0 40px 90px -40px var(--cy)}
+.term2.rv.done{transition:transform .15s,opacity .8s}
+.tbar{display:flex;gap:7px;align-items:center;padding:12px 16px;border-bottom:1px solid var(--bd);font-size:12px;color:var(--mut)}
+.tbar i{width:11px;height:11px;border-radius:50%;background:var(--bad)}.tbar i:nth-child(2){background:#fbbf24}.tbar i:nth-child(3){background:var(--lime)}
+.imgw{position:relative;aspect-ratio:1408/768;overflow:hidden}
+.imgw img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.imgw .base{filter:saturate(.85) brightness(.9)}
+.imgw .lit{filter:saturate(1.6) brightness(1.2);opacity:0;transition:opacity .3s;pointer-events:none;-webkit-mask-image:radial-gradient(170px circle at var(--x,50%) var(--y,50%),#000,transparent);mask-image:radial-gradient(170px circle at var(--x,50%) var(--y,50%),#000,transparent)}
+.imgw:hover .lit{opacity:1}
+.imgw svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.scan2{position:absolute;left:0;right:0;height:2px;background:var(--cy);box-shadow:0 0 20px var(--cy);animation:sc2 5s linear infinite;z-index:3;opacity:.55;pointer-events:none}
+@keyframes sc2{from{top:0}to{top:100%}}
+.tg{position:absolute;z-index:4;padding:6px 11px;border-radius:9px;font-size:11px;background:rgba(5,8,16,.8);border:1px solid var(--lime);color:var(--lime);animation:tgp 5.2s ease-in-out infinite;pointer-events:none}
+@keyframes tgp{0%,100%{opacity:0;transform:translateY(8px) scale(.9)}12%,60%{opacity:1;transform:none}}
+.fg{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.fg span{position:absolute;bottom:-40px;font-family:'JetBrains Mono',monospace;color:var(--lime);opacity:.13;font-size:22px;animation:rise linear infinite}
+@keyframes rise{to{transform:translateY(-115vh) rotate(25deg)}}
+.tr{position:fixed;width:8px;height:8px;margin:-4px 0 0 -4px;border-radius:50%;background:var(--cy);pointer-events:none;z-index:98;animation:trf .6s forwards}
+@keyframes trf{to{transform:scale(0);opacity:0}}
+#intro{position:fixed;inset:0;z-index:120;background:var(--bg);display:grid;place-content:center;font-size:15px;color:var(--lime);transition:opacity .6s,visibility .6s}
+#intro.out{opacity:0;visibility:hidden}
+#il div{animation:in2 .3s}@keyframes in2{from{opacity:0;transform:translateX(-10px)}}
+#ib{margin-top:18px;height:3px;width:260px;background:var(--bd);border-radius:9px;overflow:hidden}
+#ib i{display:block;height:100%;background:linear-gradient(90deg,var(--lime),var(--cy));animation:ld 1.7s cubic-bezier(.6,0,.3,1) forwards}
+@keyframes ld{from{width:0}to{width:100%}}
+#cur{position:fixed;inset:0;background:var(--lime);z-index:110;transform:translateY(100%);pointer-events:none;display:grid;place-items:center;font-size:9vw;font-weight:800;color:var(--on)}
+#cur:after{content:"</>"}
+#cur.go{animation:cw .75s cubic-bezier(.7,0,.3,1)}
+@keyframes cw{0%{transform:translateY(100%)}45%,55%{transform:translateY(0)}100%{transform:translateY(-100%)}}
+.mq.r div{animation-direction:reverse}
+#contatti{position:relative}
+.sonar{position:absolute;right:8%;top:170px;width:220px;height:220px;pointer-events:none}
+.sonar b{position:absolute;left:50%;top:50%;width:14px;height:14px;margin:-7px;border-radius:50%;background:var(--lime);box-shadow:0 0 20px var(--lime)}
+.sonar i{position:absolute;inset:0;border:2px solid var(--lime);border-radius:50%;opacity:0;animation:sn 3.6s ease-out infinite}
+.sonar i:nth-child(3){animation-delay:1.2s}.sonar i:nth-child(4){animation-delay:2.4s}
+@keyframes sn{from{transform:scale(.1);opacity:.8}to{transform:scale(1);opacity:0}}
+.pcap,.tgs{display:flex;gap:10px;flex-wrap:wrap}
+.pcap{justify-content:center;margin-top:22px}
+.tgs{padding:14px 16px;border-top:1px solid var(--bd)}
+.pcap span,.tgs span{padding:6px 12px;border-radius:9px;border:1px solid var(--bd);font-size:12px;color:var(--mut);animation:tgh 6s infinite}
+@keyframes tgh{0%,22%{color:var(--lime);border-color:var(--lime);box-shadow:0 0 16px -4px var(--lime)}30%,100%{color:var(--mut);border-color:var(--bd);box-shadow:none}}
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
+.ph2{position:relative;aspect-ratio:5/4;isolation:isolate;transition:transform .15s}
+.ph2.rv.done{transition:transform .15s,opacity .8s}
+.ph2:before{content:"";position:absolute;inset:-4px;border-radius:32px;background:conic-gradient(from var(--ang),var(--lime),var(--cy),transparent 40%,var(--lime));animation:spin 4s linear infinite;filter:blur(16px);opacity:.6;z-index:-1}
+.ph2 .pin img{object-position:center 25%}
+.chk{list-style:none}
+.chk li{position:relative;padding-left:32px;margin:14px 0;color:var(--mut);font-size:15px}
+.chk li:before{content:"✔";position:absolute;left:0;top:0;color:var(--lime)}
+.v .chk li,.chk.v li{animation:pop .6s cubic-bezier(.2,.8,.2,1) backwards}
+.chk li:nth-child(1){animation-delay:.4s!important}.chk li:nth-child(2){animation-delay:.6s!important}.chk li:nth-child(3){animation-delay:.8s!important}.chk li:nth-child(4){animation-delay:1s!important}
+@media(max-width:820px){.split{grid-template-columns:1fr}}
+.ph2.pt{aspect-ratio:3/4;width:100%;max-width:400px;justify-self:center}
+.ph2.pt .pin img{object-position:center 42%}
+.split.rev>.ph2{order:2}
+.chk li b{color:var(--fg);font-weight:600}
+@media(max-width:820px){.split.rev>.ph2{order:0}}
+.cimg{position:relative;aspect-ratio:16/10;border-radius:16px;overflow:hidden;margin-bottom:18px;border:1px solid var(--bd);flex:0 0 auto}
+.cimg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.9) brightness(.92);transition:transform .9s cubic-bezier(.2,.8,.2,1),filter .5s}
+.card-p:hover .cimg img{transform:scale(1.08);filter:saturate(1.15) brightness(1)}
+.card-p.v .cimg img{animation:zin 1.3s cubic-bezier(.2,.8,.2,1) backwards}
+@keyframes zin{from{transform:scale(1.3);opacity:0}}
+.cimg:before{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(110deg,transparent 40%,rgba(255,255,255,.2) 50%,transparent 60%);transform:translateX(-100%);transition:transform .9s}
+.card-p:hover .cimg:before{transform:translateX(100%)}
+.cimg:after{content:"";position:absolute;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--lime),transparent);box-shadow:0 0 14px var(--lime);animation:sc2 4.5s linear infinite;opacity:.7;z-index:3;pointer-events:none}
+
+
+:root,:root[data-theme="dark"]{--bg:#04050b;--fg:#f4f5ff;--mut:#a0a8c8;--card:#0a0c18;--bd:rgba(255,255,255,.09);--lime:#a78bfa;--cy:#22d3ee;--mag:#f472b6;--bad:#fb7185;--on:#07041a;color-scheme:dark}
+html{background:#04050b}
+body{background:radial-gradient(1100px 700px at 12% -8%,rgba(124,58,237,.24),transparent 60%),radial-gradient(900px 600px at 96% 8%,rgba(34,211,238,.14),transparent 60%),radial-gradient(900px 700px at 50% 110%,rgba(236,72,153,.12),transparent 60%),#04050b;background-attachment:fixed}
+body:after{content:"";position:fixed;inset:0;pointer-events:none;z-index:97;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.blob{opacity:.3;filter:blur(130px)}.b1{background:#7c3aed}.b2{background:#0ea5e9}
+.b3{background:#ec4899;top:42%;left:52%;width:420px;height:420px;animation-delay:-5s;opacity:.18}
+::selection{background:rgba(167,139,250,.35)}
+::-webkit-scrollbar{width:10px;height:10px}::-webkit-scrollbar-track{background:#04050b}::-webkit-scrollbar-thumb{background:rgba(167,139,250,.35);border-radius:9px;border:2px solid #04050b}::-webkit-scrollbar-thumb:hover{background:var(--lime)}
+nav{background:rgba(10,12,26,.62);border-color:rgba(255,255,255,.1);box-shadow:0 14px 50px -14px rgba(124,58,237,.55),inset 0 0 0 1px rgba(255,255,255,.03)}
+#ind{background:linear-gradient(120deg,var(--lime),var(--cy));box-shadow:0 0 22px rgba(167,139,250,.75)}
+nav a.on{color:#07041a;font-weight:600}
+.k{display:inline-flex;align-items:center}
+.k:before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--cy);box-shadow:0 0 12px var(--cy);margin-right:10px;animation:pu 1.6s infinite}
+h1 b .w{background-image:linear-gradient(120deg,var(--cy),var(--lime),var(--mag),var(--cy))}
+.btn{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.12)}
+.btn:hover{border-color:var(--lime);box-shadow:0 0 34px -8px var(--lime)}
+.btn.p{background:linear-gradient(120deg,var(--lime),var(--cy));color:#07041a;box-shadow:0 14px 44px -14px var(--lime)}
+.bx{background:linear-gradient(160deg,#111430,#090b17);border-color:rgba(255,255,255,.08);box-shadow:inset 0 1px 0 rgba(255,255,255,.07),0 24px 60px -34px #000}
+.bx:hover{background:linear-gradient(#0b0d1c,#0b0d1c) padding-box,conic-gradient(from var(--ang),var(--cy),var(--lime),var(--mag),transparent 45%,var(--cy)) border-box;box-shadow:0 20px 70px -26px var(--lime)}
+.chip{background:rgba(255,255,255,.03);border-color:rgba(255,255,255,.1)}
+.panel,.term2,.dash{background:linear-gradient(160deg,#0f1229,#080a15)}
+.hero:after{content:"";position:absolute;left:-40%;right:-40%;bottom:-14%;height:55%;background-image:linear-gradient(rgba(167,139,250,.6) 1px,transparent 1px),linear-gradient(90deg,rgba(167,139,250,.6) 1px,transparent 1px);background-size:64px 64px;transform:perspective(420px) rotateX(64deg);transform-origin:50% 100%;-webkit-mask-image:linear-gradient(to top,#000 5%,transparent 80%);mask-image:linear-gradient(to top,#000 5%,transparent 80%);animation:floor 3s linear infinite;pointer-events:none;opacity:.55}
+@keyframes floor{to{background-position:0 64px}}
+.pin{box-shadow:0 40px 100px -40px var(--lime)}
+.cimg img{filter:saturate(1.05) brightness(.78)}
+.card-p:hover .cimg img{filter:saturate(1.2) brightness(1)}
+.mq{background:rgba(255,255,255,.015);border-color:rgba(255,255,255,.07)}
+#intro{background:#04050b}
+#cur{background:linear-gradient(135deg,#2a1066,#04050b 55%,#06303f);color:var(--lime)}
+footer{border-color:rgba(255,255,255,.07)}
+@media(hover:none){.tr{display:none}}
+@media(hover:none){#ring{display:none}}
+@media(max-width:820px){.g2,.g3,.panel{grid-template-columns:1fr}.pipe{grid-template-columns:1fr 1fr}.pg{padding-top:110px}.pg#home{padding-top:0}.hint{display:none}.hud{bottom:70px}.hero{height:auto;min-height:100vh;padding:110px 0 80px}.hg{grid-template-columns:1fr}.pfr{width:min(74%,300px);margin:26px auto 10px}.sonar{display:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.w{opacity:1!important;transform:none!important}}
+</style>
+</head>
+<body>
+<div id="gl"></div><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div><div id="prog"></div><div id="ring"></div><div id="cur"></div>
+<div id="intro" class="m"><div><div id="il"></div><div id="ib"><i></i></div></div></div>
+<div class="fg" aria-hidden="true"><span style="left:4%;animation-duration:26s;animation-delay:-3s">&lt;/&gt;</span><span style="left:13%;animation-duration:32s;animation-delay:-14s">{ }</span><span style="left:23%;animation-duration:28s;animation-delay:-8s">200</span><span style="left:33%;animation-duration:36s;animation-delay:-20s">SQL</span><span style="left:44%;animation-duration:30s;animation-delay:-1s">✔</span><span style="left:54%;animation-duration:34s;animation-delay:-17s">404</span><span style="left:64%;animation-duration:27s;animation-delay:-10s">API</span><span style="left:74%;animation-duration:38s;animation-delay:-24s">JSON</span><span style="left:84%;animation-duration:29s;animation-delay:-6s">GET</span><span style="left:93%;animation-duration:33s;animation-delay:-15s">POST</span></div>
+<nav class="m"><i id="ind"></i><a href="#home">home</a><a href="#about">about</a><a href="#metodo">metodo</a><a href="#progetti">progetti</a><a href="#contatti">contatti</a></nav>
+
+<!-- ABOUT -->
+<main>
+<section class="pg" id="home"><div class="hero"><canvas id="cv"></canvas>
+ <div class="wrap hw hg">
+  <div class="ht">
+   <span class="k m rv">ANTONIO RUSSO · QA AUTOMATION ENGINEER</span>
+   <h1 class="rv">Se c'è un <s>bug</s>,<br>lo trovo <b>prima</b><br>di te.</h1>
+   <p class="lead rv">QA Automation Engineer · API &amp; Integration Testing.<br>Automatizzo con <b class="m" id="tw" style="color:var(--lime)"></b><span class="m" id="tc2" style="color:var(--lime)">▍</span></p>
+   <div class="rv" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:28px"><a class="btn p" href="#progetti">Guarda i progetti ↗</a><a class="btn" href="#metodo">Come lavoro →</a></div>
+  </div>
+  <div class="hp rv"><div class="pfr" id="pfr">
+      <div class="pin"><img data-i="p" alt="Antonio Russo, QA Automation Engineer"><div class="pscan"></div></div>
+   <i class="cn tl"></i><i class="cn tr"></i><i class="cn bl"></i><i class="cn br"></i></div><div class="pcap m"><span>GET /api/quality → 200 OK</span><span style="animation-delay:2s">✔ 128 test passed</span><span style="animation-delay:4s">0 regressions</span></div></div>
+ </div>
+ </div>
+<div class="wrap showcase">
+ <div class="rv"><span class="k m">IL SISTEMA CHE TESTO</span><h2>Dall'interfaccia al database, <span class="gt">livello per livello.</span></h2></div>
+ <div class="term2 rv" id="sh"><div class="tbar m"><i></i><i></i><i></i>&nbsp; request → server → database</div>
+  <div class="imgw"><img class="base" data-i="s" alt="Flusso tra interfaccia, API e database">
+   <svg viewBox="0 0 1408 768" preserveAspectRatio="none" aria-hidden="true">
+    <path id="fa" d="M330 520 C450 570 520 470 650 425 S900 385 1040 345" fill="none"/>
+    <path id="fb2" d="M1040 450 C900 520 800 470 650 500 S420 600 330 565" fill="none"/>
+    <circle r="6" style="fill:var(--lime);filter:drop-shadow(0 0 6px var(--lime))"><animateMotion dur="3.2s" repeatCount="indefinite"><mpath href="#fa"/></animateMotion></circle>
+    <circle r="6" style="fill:var(--lime);filter:drop-shadow(0 0 6px var(--lime))"><animateMotion dur="3.2s" begin=".8s" repeatCount="indefinite"><mpath href="#fa"/></animateMotion></circle>
+    <circle r="6" style="fill:var(--lime);filter:drop-shadow(0 0 6px var(--lime))"><animateMotion dur="3.2s" begin="1.6s" repeatCount="indefinite"><mpath href="#fa"/></animateMotion></circle>
+    <circle r="6" style="fill:var(--lime);filter:drop-shadow(0 0 6px var(--lime))"><animateMotion dur="3.2s" begin="2.4s" repeatCount="indefinite"><mpath href="#fa"/></animateMotion></circle>
+    <circle r="6" style="fill:var(--cy);filter:drop-shadow(0 0 6px var(--cy))"><animateMotion dur="3.6s" repeatCount="indefinite"><mpath href="#fb2"/></animateMotion></circle>
+    <circle r="6" style="fill:var(--cy);filter:drop-shadow(0 0 6px var(--cy))"><animateMotion dur="3.6s" begin="1.2s" repeatCount="indefinite"><mpath href="#fb2"/></animateMotion></circle>
+    <circle r="6" style="fill:var(--cy);filter:drop-shadow(0 0 6px var(--cy))"><animateMotion dur="3.6s" begin="2.4s" repeatCount="indefinite"><mpath href="#fb2"/></animateMotion></circle>
+    <circle cx="290" cy="430" r="10" style="fill:none;stroke:var(--lime);stroke-width:2"><animate attributeName="r" values="10;70" dur="2.4s" repeatCount="indefinite"/><animate attributeName="opacity" values=".8;0" dur="2.4s" repeatCount="indefinite"/></circle>
+    <circle cx="670" cy="430" r="10" style="fill:none;stroke:var(--cy);stroke-width:2"><animate attributeName="r" values="10;70" dur="2.4s" begin=".8s" repeatCount="indefinite"/><animate attributeName="opacity" values=".8;0" dur="2.4s" begin=".8s" repeatCount="indefinite"/></circle>
+    <circle cx="1110" cy="350" r="10" style="fill:none;stroke:var(--lime);stroke-width:2"><animate attributeName="r" values="10;80" dur="2.4s" begin="1.6s" repeatCount="indefinite"/><animate attributeName="opacity" values=".8;0" dur="2.4s" begin="1.6s" repeatCount="indefinite"/></circle>
+   </svg>
+   <div class="scan2"></div></div><div class="tgs m"><span>POST /api/login</span><span style="animation-delay:1.5s">200 OK · login success</span><span style="animation-delay:3s">DB QUERY ✔</span><span style="animation-delay:4.5s">token: abc123…</span></div></div>
+ <div class="g g3" style="margin-top:16px">
+  <div class="bx rv"><span class="num m">01 · INTERFACCIA</span><h3>User Interface</h3><p>Test funzionali e di regressione su web e mobile, con accessibilità WCAG.</p><div style="margin-top:12px"><span class="chip">Selenium</span><span class="chip">Playwright</span><span class="chip">TestNG</span><span class="chip">Axe DevTools</span></div></div>
+  <div class="bx rv"><span class="num m">02 · API &amp; MIDDLEWARE</span><h3>Server e servizi</h3><p>Validazione di richieste, risposte e integrazione tra i sistemi.</p><div style="margin-top:12px"><span class="chip">Postman</span><span class="chip">Newman</span><span class="chip">Swagger</span><span class="chip">REST</span></div></div>
+  <div class="bx rv"><span class="num m">03 · DATI</span><h3>Cloud Database</h3><p>Coerenza dei dati e query di verifica su database enterprise.</p><div style="margin-top:12px"><span class="chip">SQL</span><span class="chip">PL/SQL</span><span class="chip">Oracle</span></div></div>
+ </div>
+</div></section>
+<section class="pg" id="about"><div class="wrap">
+ <span class="k m rv">01 / ABOUT</span>
+ <h1 class="rv">QA Automation Engineer.<br><b>API</b> &amp; Integration Testing.</h1>
+ <p class="lead rv">Software Tester certificato ATSQA (ISTQB/ASTQB exam provider) con quasi 5 anni di esperienza su software enterprise: betting, IoT, cybersecurity e piattaforme digitali. Mi occupo di automazione, test API e validazione dati, con un obiettivo: stabilità delle release e prevenzione dei difetti.</p>
+ <div class="split" style="margin-top:34px">
+ <div class="ph2 rv" id="ph2"><div class="pin"><img data-i="c" alt="Antonio Russo al lavoro"><div class="pscan"></div></div><i class="cn tl"></i><i class="cn tr"></i><i class="cn bl"></i><i class="cn br"></i></div>
+ <div class="rv"><span class="num m">COME LAVORO</span><h3 style="font-size:28px;margin:10px 0 14px;letter-spacing:-.03em;line-height:1.1">Qualità che si costruisce, non che si spera.</h3>
+ <ul class="chk"><li>Framework di automazione in Java e TypeScript, con Selenium WebDriver, TestNG e Playwright</li><li>Test REST API e di integrazione con Postman, Newman e Swagger</li><li>Validazione dei dati con SQL e PL/SQL su Oracle</li><li>Team Agile/Scrum, con focus su stabilità delle release e prevenzione dei difetti</li></ul></div>
+</div>
+<div class="g g3" style="margin-top:34px">
+  <div class="bx stat rv"><b>~5</b><span class="m">ANNI DI ESPERIENZA</span></div>
+  <div class="bx stat rv"><b>-30%</b><span class="m">DIFETTI POST-RILASCIO (PIATTAFORMA ENTERPRISE)</span></div>
+  <div class="bx stat rv"><b>2</b><span class="m">CERTIFICAZIONI ATSQA 2026</span></div>
+ </div>
+ <div class="g g2" style="margin-top:16px">
+  <div class="bx rv"><div class="avatar"><img data-i="p" alt="Antonio Russo"></div><h3>Antonio Russo</h3><p>Roma, Italia · Italiano (madrelingua), inglese B2, francese B2.<br>Lavoro in team Agile/Scrum con sviluppatori e infrastruttura: analizzo i requisiti, progetto i test, automatizzo i flussi critici e gestisco il ciclo di vita dei difetti.</p></div>
+  <div class="bx rv"><span class="num m">COSA FACCIO</span><ul style="margin-top:10px"><li>Test automation con Selenium WebDriver (Java, TestNG) e Playwright (TypeScript)</li><li>Test REST API e middleware con Postman, Newman e Swagger</li><li>Validazione dati con SQL e PL/SQL su Oracle</li><li>Security e performance testing: Burp Suite, OWASP ZAP, Apache JMeter</li><li>Accessibilità (WCAG), test mobile iOS/Android</li></ul></div>
+ </div>
+ <h2 class="rv">Stack tecnologico</h2>
+ <div class="tabs rv" id="skf"></div><div class="rv" id="skl"></div>
+ <h2 class="rv">Percorso</h2>
+ <div class="tl rv">
+  <div><span class="num m">2025 — OGGI</span><h3>QA Engineer · piattaforma enterprise di betting</h3><p>Test funzionali, di integrazione, di sistema e regressione su più moduli; validazione API e coerenza dati su database Oracle; gestione difetti e controllo UX/UI sui design.</p><span class="chip">Postman</span><span class="chip">SQL / Oracle</span><span class="chip">Polarion</span><span class="chip">ServiceNow</span><span class="chip">Figma</span></div>
+  <div><span class="num m">2023 — 2025</span><h3>QA Engineer · migrazione backend, IoT/cybersecurity, VR/WebGL</h3><p>Validazione di una migrazione backend enterprise, test di sistemi IoT embedded orientati alla sicurezza (MQTT, Zigbee) e di una piattaforma VR/WebGL.</p><span class="chip">Burp Suite</span><span class="chip">OWASP ZAP</span><span class="chip">JMeter</span><span class="chip">Swagger</span><span class="chip">Axe DevTools</span></div>
+  <div><span class="num m">2022 — 2023</span><h3>QA Engineer · IoT medicale e analytics sportiva</h3><p>Test funzionali, di integrazione e di regressione, automazione dei flussi end-to-end e verifica dell'integrazione dispositivo-cloud-mobile.</p><span class="chip">Selenium</span><span class="chip">BLE</span><span class="chip">SQL / PL-SQL</span><span class="chip">TestFlight / APK</span></div>
+ </div>
+ <h2 class="rv">Certificazioni e formazione</h2>
+ <div class="g g2">
+  <div class="bx rv"><span class="num m">CERTIFICAZIONI</span><ul style="margin-top:10px"><li>2026 · ATSQA Certified Tester — Agile Testing</li><li>2026 · ATSQA Certified Software Tester</li><li>2025 · Registered Scrum Basics</li><li>2024 · IBM Cybersecurity Fundamentals</li></ul></div>
+  <div class="bx rv"><span class="num m">FORMAZIONE</span><ul style="margin-top:10px"><li>2024 · Cybersecurity &amp; Data Protection Program</li><li>2015–2019 · Laurea magistrale in Economia e Finanza</li><li>2011–2015 · Laurea triennale in Economia e Finanza</li></ul></div>
+ </div>
+</div></section>
+
+<!-- METODO -->
+<section class="pg" id="metodo"><div class="wrap">
+ <span class="k m rv">02 / METODO</span>
+ <h1 class="rv">Test. Validate. <b>Improve.</b></h1>
+ <p class="lead rv">Il testing non è solo trovare bug: è capire il comportamento del software. Questo è il mio flusso, con gli strumenti che uso in ogni fase.</p>
+ <div class="pipe rv" id="pipe"></div>
+ <div class="panel rv"><div><h3 id="pt"></h3><p id="pp"></p><div id="ptc"></div></div><pre class="m" id="pcode"></pre></div>
+ <div class="split rev" style="margin-top:56px">
+ <div class="rv"><span class="num m">DOVE NASCE L'AUTOMAZIONE</span><h3 style="font-size:28px;margin:10px 0 14px;letter-spacing:-.03em;line-height:1.1">Dietro ogni test c'è del codice.</h3>
+ <p style="color:var(--mut);margin-bottom:8px">Costruisco framework di automazione mantenibili e li affianco a test mirati: la stessa cura per interfaccia, API e dati.</p>
+ <ul class="chk"><li><b>Automazione:</b> Selenium WebDriver, TestNG, Playwright</li><li><b>API:</b> Postman, Newman, Swagger</li><li><b>Dati:</b> SQL, PL/SQL, Oracle</li><li><b>Sicurezza e performance:</b> Burp Suite, OWASP ZAP, Apache JMeter</li></ul></div>
+ <div class="ph2 pt rv" id="ph3"><div class="pin"><img data-i="k" alt="Antonio Russo alla sua postazione di lavoro"><div class="pscan"></div></div><i class="cn tl"></i><i class="cn tr"></i><i class="cn bl"></i><i class="cn br"></i></div>
+</div>
+<h2 class="rv">Automazione in pratica</h2>
+ <p class="lead rv" style="margin-bottom:20px">Esempi dei linguaggi e dei framework che uso ogni giorno.</p>
+ <div class="tabs rv" id="ctabs"></div><pre class="m rv" id="ccode"></pre>
+ <h2 class="rv">Principi</h2>
+ <div class="g g3">
+  <div class="bx rv"><span class="num m">01</span><h3>Prevenire</h3><p>Analizzo requisiti e design prima del codice: un'ambiguità trovata presto costa molto meno di un difetto in produzione.</p></div>
+  <div class="bx rv"><span class="num m">02</span><h3>Automatizzare ciò che conta</h3><p>Automazione sui flussi critici e sulla regressione; esplorazione manuale dove serve intuito.</p></div>
+  <div class="bx rv"><span class="num m">03</span><h3>Verificare a ogni livello</h3><p>Interfaccia, API, middleware e dati: un bug può nascondersi in qualsiasi strato, quindi li controllo tutti.</p></div>
+ </div>
+</div></section>
+
+<!-- PROGETTI -->
+<section class="pg" id="progetti"><div class="wrap">
+ <span class="k m rv">03 / PROGETTI</span>
+ <h1 class="rv">Lavoro costruito sulla <b>qualità.</b></h1>
+ <p class="lead rv">Contesti diversi, stesso approccio. Filtra per area tecnologica.</p>
+ <div class="tabs rv" id="pf" style="margin-top:26px"></div>
+ <div class="g g2" id="pl"></div>
+ <h2 class="rv">Progetti personali</h2>
+ <div class="g g3" id="pp2"></div>
+ 
+</div></section>
+
+<!-- CONTATTI -->
+<section class="pg" id="contatti"><div class="sonar"><b></b><i></i><i></i><i></i></div><div class="wrap">
+ <span class="k m rv">04 / CONTATTI</span>
+ <h1 class="rv">Costruiamo qualcosa di <b>migliore.</b></h1>
+ <p class="lead rv"><span class="dot"></span>Aperto a nuove opportunità come QA Automation Engineer. Parliamo di test, automazione e qualità del software.</p>
+ <div class="g" style="margin-top:34px">
+  <div class="rv">
+   <div class="g g3" style="gap:12px">
+    <a class="bx" href="https://www.linkedin.com/in/antonio-russo-qa/" target="_blank" rel="noopener noreferrer"><span class="num m">LINKEDIN</span><h3>linkedin.com/in/antonio-russo-qa ↗</h3></a>
+    <a class="bx" href="https://github.com/antonio-russo-qa" target="_blank" rel="noopener noreferrer"><span class="num m">GITHUB</span><h3>github.com/antonio-russo-qa ↗</h3></a>
+    <div class="bx"><span class="num m">BASE</span><h3>Roma, Italia</h3><p>Italiano · English (B2) · Français (B2)</p></div>
+   </div>
+  </div>
+  
+ </div>
+</div></section>
+</main>
+<div class="mq"><div class="m"><span>SELENIUM</span><span>PLAYWRIGHT</span><span>POSTMAN</span><span>NEWMAN</span><span>SQL</span><span>JMETER</span><span>BURP SUITE</span><span>SELENIUM</span><span>PLAYWRIGHT</span><span>POSTMAN</span><span>NEWMAN</span><span>SQL</span><span>JMETER</span><span>BURP SUITE</span></div></div>
+<div class="mq r"><div class="m"><span>QA AUTOMATION</span><span>API TESTING</span><span>REGRESSION</span><span>INTEGRATION</span><span>END-TO-END</span><span>QA AUTOMATION</span><span>API TESTING</span><span>REGRESSION</span><span>INTEGRATION</span><span>END-TO-END</span></div></div>
+<footer class="m">© 2026 Antonio Russo · BUILT WITH CODE &amp; CURIOSITY</footer>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const IMG={p:"images/antonio.jpg",c:"images/chi-sono.jpg",k:"images/coding.jpg",s:"images/testing-profile.jpg",j1:"images/progetto-enterprise-qa.jpg",j2:"images/progetto-backend-migration.jpg",j3:"images/progetto-iot-security.jpg",j4:"images/progetto-vr-webgl.jpg",j5:"images/progetto-medical-iot.jpg",j6:"images/progetto-sports-analytics.jpg"};
+/* ---------- router ---------- */
+function route(){const id=['home','about','metodo','progetti','contatti'].includes(location.hash.slice(1))?location.hash.slice(1):'home';
+ $$('.pg').forEach(p=>p.classList.toggle('on',p.id===id));$$('nav a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+id));scrollTo(0,0);$$('.pg.on .k').forEach(scramble);if(id==='home')setTimeout(rs,30);moveInd()}
+addEventListener('hashchange',()=>{const c=$('#cur');c.classList.remove('go');c.offsetWidth;c.classList.add('go');setTimeout(route,330)});route();
+addEventListener('pointermove',e=>{const g=$('#gl');g.style.left=e.clientX+'px';g.style.top=e.clientY+'px'});
+document.addEventListener('pointermove',e=>{const c=e.target.closest&&e.target.closest('.bx');if(!c)return;const r=c.getBoundingClientRect();c.style.setProperty('--mx',e.clientX-r.left+'px');c.style.setProperty('--my',e.clientY-r.top+'px')});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const t=e.target;t.style.transitionDelay=Math.min([...t.parentNode.children].indexOf(t),6)*90+'ms';t.classList.add('v');if(t.classList.contains('stat'))countUp(t.querySelector('b'));setTimeout(()=>{t.style.transitionDelay='';t.classList.add('done')},1500);io.unobserve(t)}}),{threshold:.1});
+const watch=()=>$$('.rv:not(.v)').forEach(e=>io.observe(e));watch();
+
+/* ---------- about: stack ---------- */
+const stack={'Automazione':['Selenium WebDriver','Playwright','TestNG','Java','TypeScript','Maven'],'API':['REST API','Postman','Newman','Swagger','Middleware'],'Database':['SQL','PL/SQL','Oracle'],'Security & Perf':['Burp Suite','OWASP ZAP','Apache JMeter'],'Tools & ALM':['Jira','Azure DevOps','Polarion ALM','ServiceNow','Figma','Axe DevTools'],'IoT':['MQTT','Zigbee','BLE'],'Metodi':['Agile','Scrum','STLC','WCAG']};
+let sk='Tutti';function drawSk(){$('#skf').innerHTML=['Tutti',...Object.keys(stack)].map(k=>`<button class="chip ${k===sk?'on':''}" data-k="${k}">${k}</button>`).join('');
+ $('#skl').innerHTML=Object.entries(stack).flatMap(([k,v])=>v.map(t=>`<span class="chip ${sk==='Tutti'||sk===k?'':'dim'}">${t}</span>`)).join('')}
+$('#skf').onclick=e=>{const b=e.target.closest('button');if(b){sk=b.dataset.k;drawSk()}};drawSk();
+
+/* ---------- metodo: pipeline ---------- */
+const steps=[
+['Analisi','Studio requisiti, design e specifiche API per individuare ambiguità e rischi prima di scrivere i test.',['Figma','Swagger','Polarion ALM'],'$ analyze --requirements\n→ requisiti: 12\n→ ambiguità: 3\n→ rischi alti: 2'],
+['Progettazione','Piano di test e casi di test con scenari positivi, negativi ed edge case; scelta di cosa automatizzare.',['Jira','Azure DevOps','STLC'],'TC-014  Login valido        ready\nTC-015  Password errata     ready\nTC-016  Campo vuoto         ready\nTC-017  Sessione scaduta    ready'],
+['Automazione','Framework UI e API mantenibili, con report e integrazione nel flusso di rilascio.',['Selenium','Playwright','TestNG','Newman'],'$ mvn test\n$ npx playwright test\n$ newman run api-suite.json\n✔ suite eseguite, report generati'],
+['Dati e sicurezza','Coerenza dei dati con SQL/PL-SQL, poi security e performance test su API e sistemi embedded.',['SQL','Oracle','Burp Suite','OWASP ZAP','JMeter'],'SELECT COUNT(*) FROM orders o\nLEFT JOIN payments p ON p.order_id=o.id\nWHERE p.id IS NULL;\n→ atteso: 0'],
+['Report e regressione','Difetti riproducibili con evidenze e severità; dopo il fix, regressione completa.',['Jira','ServiceNow','Polarion ALM'],'BUG-231 [Alta]\nAtteso: ordine creato\nOttenuto: errore 500\n--\n$ run regression\n✔ 0 regressioni · RELEASE OK']];
+let cur=0,auto;$('#pipe').innerHTML=steps.map((s,i)=>`<button data-i="${i}"><span>0${i+1}</span>${s[0]}</button>`).join('');
+function go(i){cur=i;$$('#pipe button').forEach((b,k)=>b.classList.toggle('on',k===i));$('#pt').textContent=steps[i][0];$('#pp').textContent=steps[i][1];$('#ptc').innerHTML=steps[i][2].map(t=>`<span class="chip">${t}</span>`).join('');typeInto($('#pcode'),steps[i][3])}
+$('#pipe').onclick=e=>{const b=e.target.closest('button');if(b){clearInterval(auto);go(+b.dataset.i)}};go(0);auto=setInterval(()=>{if($('#metodo').classList.contains('on'))go((cur+1)%5)},4500);
+
+/* ---------- metodo: esempi di codice ---------- */
+const code={'Selenium · Java':`@Test
+public void loginShowsDashboard() {
+    driver.get(baseUrl + "/login");
+    driver.findElement(By.id("user")).sendKeys("qa.user");
+    driver.findElement(By.id("pwd")).sendKeys(secret);
+    driver.findElement(By.cssSelector("button[type=submit]")).click();
+    Assert.assertTrue(
+        driver.findElement(By.id("dashboard")).isDisplayed());
+}`,
+'Playwright · TypeScript':`test('il login mostra la dashboard', async ({ page }) => {
+  await page.goto('/login');
+  await page.getByLabel('Utente').fill('qa.user');
+  await page.getByLabel('Password').fill(secret);
+  await page.getByRole('button', { name: 'Accedi' }).click();
+  await expect(page.getByTestId('dashboard')).toBeVisible();
+});`,
+'Postman · Newman':`// Test in Postman
+pm.test("status 200", () => pm.response.to.have.status(200));
+pm.test("schema valido", () => {
+  const body = pm.response.json();
+  pm.expect(body).to.have.property("id");
+});
+
+# Esecuzione da riga di comando / CI
+newman run api-suite.postman_collection.json \\
+  -e staging.postman_environment.json --reporters cli,junit`,
+'SQL · Oracle':`-- Coerenza tra API e database
+SELECT o.id, o.status, p.status AS pay_status
+FROM   orders o
+JOIN   payments p ON p.order_id = o.id
+WHERE  o.status = 'CONFIRMED'
+AND    p.status <> 'PAID';
+-- atteso: 0 righe`};
+let ck=Object.keys(code)[0];function drawC(){$('#ctabs').innerHTML=Object.keys(code).map(k=>`<button class="chip ${k===ck?'on':''}" data-k="${k}">${k}</button>`).join('');typeInto($('#ccode'),code[ck])}
+$('#ctabs').onclick=e=>{const b=e.target.closest('button');if(b){ck=b.dataset.k;drawC()}};drawC();
+
+/* ---------- progetti ---------- */
+const P=[
+{im:'j1',t:'Piattaforma enterprise di betting',c:['Automazione','API','Database'],d:'QA cross-modulo su una piattaforma di scommesse in team Agile/Scrum.',l:['Test funzionali, di integrazione, di sistema e regressione','Validazione REST API e coerenza dati con SQL su Oracle','Gestione difetti e verifica UX/UI sui design','Contributo alla riduzione dei difetti post-rilascio di circa il 30%'],x:['Postman','SQL','Oracle','Polarion','ServiceNow','Figma']},
+{im:'j2',t:'Migrazione backend enterprise',c:['API','Database'],d:'Validazione post-migrazione di un backend in ambiente enterprise.',l:['Test plan e casi di test per la validazione','Test funzionali e di integrazione su API e database','Verifica della comunicazione middleware'],x:['REST API','Middleware','SQL','Jira']},
+{im:'j3',t:'IoT embedded e cybersecurity',c:['Security','IoT','API'],d:'Test di sistemi IoT embedded orientati alla sicurezza.',l:['Test funzionali, di integrazione, regressione e sicurezza','Validazione di comunicazione MQTT e Zigbee e delle API','Security test e performance test','Supporto all\'ambiente di staging'],x:['MQTT','Zigbee','Burp Suite','OWASP ZAP','JMeter']},
+{im:'j4',t:'Piattaforma VR/WebGL',c:['API','Accessibilità'],d:'Test di una piattaforma di realtà virtuale per il patrimonio culturale.',l:['Test funzionali, di integrazione e regressione in Agile','Validazione API; performance e rendering VR/WebGL','Accessibilità WCAG e test su iOS e Android'],x:['Swagger','Postman','WebGL','Axe DevTools']},
+{im:'j5',t:'Piattaforma IoT medicale',c:['Automazione','IoT','Accessibilità'],d:'Riabilitazione remota con dispositivi, cloud e app mobile.',l:['Test API REST e test automatici con Selenium','Integrazione BLE e dispositivo-cloud-mobile','App iOS e Android, accessibilità WCAG 2.1 e UX/UI','Verifica di stabilità e prestazioni'],x:['Selenium','BLE','TestFlight','APK','WCAG 2.1']},
+{im:'j6',t:'Piattaforma di analytics sportiva',c:['Automazione','API','Database','Accessibilità'],d:'Test funzionali e di regressione in team Agile/Scrum.',l:['Automazione dei flussi end-to-end con Selenium WebDriver','Test REST API; qualità dei dati con SQL/PL-SQL','Accessibilità con Axe DevTools e usabilità UI/UX'],x:['Selenium','Swagger','Postman','SQL','PL/SQL']}];
+const PP=[
+{t:'Framework di automazione UI',d:'Framework end-to-end per applicazioni web.',x:['Java','Selenium WebDriver','TestNG','Maven']},
+{t:'Automazione API',d:'Validazione automatica di API REST con collection eseguite da riga di comando.',x:['TypeScript','Postman','Newman']},
+{t:'Suite UI cross-browser',d:'Test UI su più browser con test moderni e affidabili.',x:['TypeScript','Playwright']}];
+const cats=['Tutti','Automazione','API','Database','Security','IoT','Accessibilità'];let pc='Tutti';
+$('#pf').innerHTML=cats.map(c=>`<button class="chip ${c===pc?'on':''}" data-k="${c}">${c}</button>`).join('');
+const card=(p,i)=>`<div class="bx card-p rv" data-c="${(p.c||[]).join(',')}">${p.im?`<div class="cimg"><img data-i="${p.im}" alt="${p.t}"></div>`:''}<span class="num m">${String(i+1).padStart(2,'0')}</span><h3>${p.t}</h3><p>${p.d}</p>${p.l?'<ul style="margin-top:10px">'+p.l.map(x=>`<li>${x}</li>`).join('')+'</ul>':''}<div class="chips">${p.x.map(x=>`<span class="chip">${x}</span>`).join('')}</div></div>`;
+$('#pl').innerHTML=P.map(card).join('');$('#pp2').innerHTML=PP.map(card).join('');watch();
+$('#pf').onclick=e=>{const b=e.target.closest('button');if(!b)return;pc=b.dataset.k;$$('#pf button').forEach(x=>x.classList.toggle('on',x===b));$$('#pl .card-p').forEach(c=>{c.classList.toggle('hide',pc!=='Tutti'&&!c.dataset.c.split(',').includes(pc));c.style.animation='none';c.offsetWidth;c.style.animation='pop .5s cubic-bezier(.2,.8,.2,1) backwards'})};
+
+/* ---------- contatti ---------- */
+/* ---------- animazioni globali ---------- */
+function typeInto(el,txt){clearInterval(el._t);el.textContent='';let i=0;el._t=setInterval(()=>{i+=2;el.textContent=txt.slice(0,i);if(i>=txt.length)clearInterval(el._t)},14)}
+function countUp(el){const m=el.textContent.match(/^(\D*)(\d+)(\D*)$/);if(!m||el.dataset.d)return;el.dataset.d=1;const T=+m[2];let i=0;const id=setInterval(()=>{i++;el.textContent=m[1]+Math.round(T*i/30)+m[3];if(i>=30)clearInterval(id)},35)}
+function scramble(el){const t=el.dataset.t||(el.dataset.t=el.textContent);let f=0;clearInterval(el._s);el._s=setInterval(()=>{f++;el.textContent=t.split('').map((c,i)=>c===' '||i<f/2?c:'█▓▒░#/<>_'[Math.random()*9|0]).join('');if(f>t.length*2){clearInterval(el._s);el.textContent=t}},30)}
+function splitWords(n,c){[...n.childNodes].forEach(ch=>{if(ch.nodeType===3){const f=document.createDocumentFragment();ch.textContent.split(/(\s+)/).forEach(w=>{if(!w)return;if(/^\s+$/.test(w))f.appendChild(document.createTextNode(' '));else{const s=document.createElement('span');s.className=c.cls||'w';s.style.setProperty('--i',c.n++);s.textContent=w;f.appendChild(s)}});ch.replaceWith(f)}else if(ch.nodeType===1&&ch.tagName!=='BR')splitWords(ch,c)})}
+$$('h1').forEach(h=>splitWords(h,{n:0}));
+addEventListener('scroll',()=>{$('#prog').style.width=(scrollY/Math.max(1,document.documentElement.scrollHeight-innerHeight)*100)+'%'},{passive:true});
+const ring=$('#ring');addEventListener('pointermove',e=>{ring.style.transform=`translate(${e.clientX}px,${e.clientY}px)`});
+document.addEventListener('pointerover',e=>ring.classList.toggle('big',!!(e.target.closest&&e.target.closest('a,button,.bx'))));
+addEventListener('pointerdown',e=>{for(let i=0;i<10;i++){const s=document.createElement('i');s.className='sp';const a=Math.random()*6.28,d=30+Math.random()*50;s.style.cssText=`left:${e.clientX}px;top:${e.clientY}px;--dx:${Math.cos(a)*d}px;--dy:${Math.sin(a)*d}px`;document.body.appendChild(s);setTimeout(()=>s.remove(),700)}});
+let tc=null;document.addEventListener('pointermove',e=>{const c=e.target.closest&&e.target.closest('.bx.rv.done');if(tc&&tc!==c){tc.style.transform='';tc=null}if(!c)return;tc=c;const r=c.getBoundingClientRect(),px=(e.clientX-r.left)/r.width-.5,py=(e.clientY-r.top)/r.height-.5;c.style.transform=`perspective(800px) rotateY(${px*7}deg) rotateX(${-py*7}deg) translateY(-4px)`});
+$$('.btn,.mail').forEach(b=>{b.addEventListener('pointermove',e=>{const r=b.getBoundingClientRect();b.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.18}px,${(e.clientY-r.top-r.height/2)*.28}px)`});b.addEventListener('pointerleave',()=>b.style.transform='')});
+const mo=new MutationObserver(m=>m.forEach(r=>[...r.target.querySelectorAll('.chip')].forEach((c,i)=>c.style.setProperty('--i',i))));
+['#skl','#ptc','#pl','#pp2'].forEach(s=>mo.observe($(s),{childList:true}));
+/* ---------- home: parole che si scrivono ---------- */
+const words=['Selenium + Java','Playwright + TypeScript','Postman + Newman','SQL + PL/SQL','JMeter + OWASP ZAP'];let wi=0,wc=0,wd=0;
+setInterval(()=>{const w=words[wi];if(!wd){wc++;if(wc>=w.length+12)wd=1}else{wc--;if(wc<=0){wd=0;wi=(wi+1)%words.length}}$('#tw').textContent=w.slice(0,wc)},70);
+/* ---------- home: rete di sistema e bug da schiacciare ---------- */
+const cv=$('#cv'),cx=cv.getContext('2d'),nodes=[],bugs=[],fx=[];let W=0,H=0,mx=-999,my=-999,score=0,inited=1;
+function rs(){const r=devicePixelRatio||1;W=cv.clientWidth;H=cv.clientHeight;cv.width=W*r;cv.height=H*r;cx.setTransform(r,0,0,r,0,0);nodes.forEach(n=>{if(n.x>W)n.x=Math.random()*W;if(n.y>H)n.y=Math.random()*H})}
+addEventListener('resize',rs);
+for(let i=0;i<70;i++)nodes.push({x:Math.random()*innerWidth,y:Math.random()*innerHeight,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35});
+function spawn(){bugs.push({x:Math.random()<.5?-20:W+20,y:Math.random()*H*.9+H*.05,a:Math.random()*6.28,s:.7+Math.random()*.9,t:0})}
+cv.addEventListener('pointermove',e=>{const r=cv.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top});
+cv.addEventListener('pointerleave',()=>{mx=my=-999});
+cv.addEventListener('pointerdown',e=>{const r=cv.getBoundingClientRect(),px=e.clientX-r.left,py=e.clientY-r.top;for(let i=bugs.length-1;i>=0;i--){const b=bugs[i];if(Math.hypot(b.x-px,b.y-py)<32){bugs.splice(i,1);score++;$('#score').textContent=score;for(let k=0;k<16;k++)fx.push({x:b.x,y:b.y,vx:(Math.random()-.5)*7,vy:(Math.random()-.5)*7,l:1});setTimeout(spawn,1200);return}}});
+function loop(){requestAnimationFrame(loop);if(!$('#home').classList.contains('on'))return;if(!W)rs();if(!inited){inited=1;for(let i=0;i<6;i++)spawn()}
+ const st=getComputedStyle(document.documentElement),lime=st.getPropertyValue('--lime').trim(),cy=st.getPropertyValue('--cy').trim();cx.clearRect(0,0,W,H);
+ nodes.forEach(n=>{n.x+=n.vx;n.y+=n.vy;if(n.x<0||n.x>W)n.vx*=-1;if(n.y<0||n.y>H)n.vy*=-1;const d=Math.hypot(n.x-mx,n.y-my);if(d<150){n.x+=(n.x-mx)/d*1.4;n.y+=(n.y-my)/d*1.4}});
+ for(let i=0;i<nodes.length;i++){for(let j=i+1;j<nodes.length;j++){const d=Math.hypot(nodes[i].x-nodes[j].x,nodes[i].y-nodes[j].y);if(d<130){cx.strokeStyle=cy;cx.globalAlpha=(1-d/130)*.35;cx.beginPath();cx.moveTo(nodes[i].x,nodes[i].y);cx.lineTo(nodes[j].x,nodes[j].y);cx.stroke()}}cx.globalAlpha=.8;cx.fillStyle=lime;cx.beginPath();cx.arc(nodes[i].x,nodes[i].y,2,0,7);cx.fill()}
+ cx.globalAlpha=1;cx.font='26px serif';cx.textAlign='center';cx.textBaseline='middle';
+ bugs.forEach(b=>{b.t++;b.a+=Math.sin(b.t/20)*.06;const d=Math.hypot(b.x-mx,b.y-my),sp=d<130?3:1;if(d<130)b.a=Math.atan2(b.y-my,b.x-mx);b.x+=Math.cos(b.a)*b.s*sp;b.y+=Math.sin(b.a)*b.s*sp;if(b.x<-40)b.x=W+30;if(b.x>W+40)b.x=-30;if(b.y<20||b.y>H-20)b.a=-b.a;cx.save();cx.translate(b.x,b.y);cx.rotate(b.a+Math.PI/2);cx.fillText('🐞',0,0);cx.restore()});
+ cx.font='15px monospace';fx.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.l-=.03;cx.globalAlpha=Math.max(p.l,0);cx.fillStyle=lime;cx.fillText('✔',p.x,p.y)});cx.globalAlpha=1;
+ for(let i=fx.length-1;i>=0;i--)if(fx[i].l<=0)fx.splice(i,1)}
+loop();
+/* ---------- foto, intro, scie, navigazione ---------- */
+$$('img[data-i]').forEach(i=>i.src=IMG[i.dataset.i]);
+function moveInd(){const a=$('nav a.on'),i=$('#ind');if(a&&i){i.style.left=a.offsetLeft+'px';i.style.width=a.offsetWidth+'px'}}
+addEventListener('load',moveInd);addEventListener('resize',moveInd);moveInd();
+function pTilt(el,k,par){el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect(),px=(e.clientX-r.left)/r.width-.5,py=(e.clientY-r.top)/r.height-.5;el.style.transform=`perspective(900px) rotateY(${px*k}deg) rotateX(${-py*k}deg)`;if(par)el.querySelector('img').style.transform=`translate(${-px*18}px,${-py*18}px)`});el.addEventListener('pointerleave',()=>{el.style.transform='';if(par)el.querySelector('img').style.transform=''})}
+pTilt($('#pfr'),14,1);pTilt($('#sh'),4,0);
+{const b=$('#sh img.base'),c=b.cloneNode();c.className='lit';c.src=IMG.s;b.after(c);$('#sh .imgw').addEventListener('pointermove',e=>{const r=e.currentTarget.getBoundingClientRect();c.style.setProperty('--x',e.clientX-r.left+'px');c.style.setProperty('--y',e.clientY-r.top+'px')})}
+$$('.pg:not(#home) .lead').forEach(h=>splitWords(h,{n:0,cls:'wl'}));
+let lt=0;addEventListener('pointermove',e=>{const n=performance.now();if(n-lt<45)return;lt=n;const d=document.createElement('i');d.className='tr';d.style.left=e.clientX+'px';d.style.top=e.clientY+'px';document.body.appendChild(d);setTimeout(()=>d.remove(),600)});
+const intro=$('#intro'),il=$('#il'),LN=['> npm run qa-suite','> caricamento test…','> ✔ 128 passed · 0 failed'];let lni=0;
+(function nx(){if(lni<LN.length){il.insertAdjacentHTML('beforeend','<div>'+LN[lni++]+'</div>');setTimeout(nx,420)}else setTimeout(()=>{intro.classList.add('out');setTimeout(()=>intro.remove(),700)},450)})();
+pTilt($('#ph2'),8,1);
+pTilt($('#ph3'),8,1);
+
+</script>
+</body>
+</html>
