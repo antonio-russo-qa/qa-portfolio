@@ -420,7 +420,7 @@ html.lite{scroll-behavior:auto}
 <script>
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const LITE=document.documentElement.classList.contains('lite');let lf=0;
-const IMG={p:"images/antonio.jpg",c:"images/chi-sono.jpg",k:"images/coding.jpg",s:"images/testing-profile.jpg",j1:"images/progetto-enterprise-qa.jpg",j2:"images/progetto-backend-migration.jpg",j3:"images/progetto-iot-security.jpg",j4:"images/progetto-vr-webgl.jpg",j5:"images/progetto-medical-iot.jpg",j6:"images/progetto-sports-analytics.jpg"};
+const IMG={p:"images/antonionews.jpg",c:"images/chi-sono.jpg",k:"images/coding.jpg",s:"images/testing-profile.jpg",j1:"images/progetto-enterprise-qa.jpg",j2:"images/progetto-backend-migration.jpg",j3:"images/progetto-iot-security.jpg",j4:"images/progetto-vr-webgl.jpg",j5:"images/progetto-medical-iot.jpg",j6:"images/progetto-sports-analytics.jpg"};
 /* ---------- router ---------- */
 function route(){const id=['home','about','metodo','progetti','contatti'].includes(location.hash.slice(1))?location.hash.slice(1):'home';
  $$('.pg').forEach(p=>p.classList.toggle('on',p.id===id));$$('nav a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+id));scrollTo({top:0,left:0,behavior:'instant'});$$('.pg.on .k').forEach(scramble);if(id==='home')setTimeout(rs,30);moveInd()}
